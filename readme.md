@@ -1,15 +1,13 @@
 
 
-* Last commit -  ``git commit -m '13.03.2020 23:--'``
-
-*  ``@include wid(992) {   }    1200  992-1199  992  991  601-991  600``
+* Last commit -  ``git commit -m '17.06.2020 20:--'``
 
 ### Table
 ```
 section.name__1.section__
   .container
     .row
-      .col-md-4.col-sm-12
+      .col.m4.s12.l5.xl6
 ```
 ### Link and Script
 ```
@@ -31,25 +29,21 @@ picture
 https://devhints.io/
 
 #### Configuration Webpack
-*  ``port: 8134``
-* Last commit -  ``git commit -m '07.02.2020 20:--'``
 * compress css not url in file ``build/webpack.base.conf.js``  -  `` options: { sourceMap: true  /* , url: false  */ } ``
 
-#### Full bind - the main
-
-* css /sass / scss - loader
-* autoprefixer
-* min-css
-* cssnano
-* pug-loader | [Open link](https://pughtml.com) converter
-* html-loader
-* image-webpack-loader - optimizes your images 
 
 #### Plugins
 * Slick-carousel  [Open link](https://github.com/kenwheeler/slick/)   
 * Fancybox [Open link](https://github.com/fancyapps/fancybox)  
 * Ionicons Framework [Open link](https://ionicons.com/v2/)  
-* Forms validator input my js
 
+
+##### SCSS @media table
+
+*  `` @include wid(1200) { }``
+*  `` @include wid(992-1199) { } ``
+*  `` @include wid(991) { } ``
+*  `` @include wid(601-991) { }``
+*  `` @include wid(600) { }``
 
 ##### Copyright (c) 2020
