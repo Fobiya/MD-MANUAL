@@ -1,6 +1,11 @@
 
+##Syntax MD*
+https://pandao.github.io/editor.md/en.html
 
-* Last commit -  ``git commit -m '17.06.2020 20:--'``
+* Last commit -  ``git commit -m '17.06.2020 14:30'``
+
+
+
 
 ### Table
 ```
