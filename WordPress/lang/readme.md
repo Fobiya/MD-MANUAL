@@ -1,6 +1,8 @@
-## WP Lang
+## WP language
 
 <!--![](../../img/)-->
+
+https://wpml.org/
 
 ``<?php bloginfo('language'); ?>``
 

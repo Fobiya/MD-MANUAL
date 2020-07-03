@@ -25,6 +25,29 @@ url ``domen/category/name-category/``
         ) );
         ?>
     </ul>
+    
+    
+if( is_category( $category ) ){
+	// code... you function - 
+}
+    
+    
+is_category();
+// When any Category archive page is being displayed.
+ 
+is_category( '9' );
+// When the archive page for Category 9 is being displayed.
+ 
+is_category( 'Stinky Cheeses' );
+// When the archive page for the Category with Name "Stinky Cheeses" is being displayed.
+ 
+is_category( 'blue-cheese' );
+// When the archive page for the Category with Category Slug "blue-cheese" is being displayed.
+ 
+is_category( array( 9, 'blue-cheese', 'Stinky Cheeses' ) );
+// Returns true when the category of posts being displayed is either term_ID 9,
+// or slug "blue-cheese", or name "Stinky Cheeses".
+    
 
 ```
 
