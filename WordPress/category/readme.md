@@ -27,10 +27,20 @@ url ``domen/category/name-category/``
     </ul>
     
     
+    
 if( is_category( $category ) ){
 	// code... you function - 
 }
     
+
+  if ( 'webinars' === get_query_var( 'post_type' ) ) {
+      get_template_part( 'template-parts/content', 'search-webinars' );
+  } elseif ('post' === get_query_var( 'post_type' )) {
+      get_template_part( 'template-parts/content', 'search-vitals' );
+  } else {
+      get_template_part( 'template-parts/content', 'search-general' );
+  }
+
     
 is_category();
 // When any Category archive page is being displayed.
