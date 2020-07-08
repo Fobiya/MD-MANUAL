@@ -40,3 +40,99 @@ ul.list li:before {
 </ul>
 
 ```
+
+#### ol list
+
+
+![](../../img/ol-list.png)
+
+#### Css Style
+
+```css
+
+
+li {
+  position: relative;
+  list-style-type: none;
+  padding-left: 20px;
+
+  color: #484848;
+  color: #484848;
+  font-weight: 100;
+
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+/* Убираем исходную нумерацию у списка */
+ol {
+  counter-reset: list1;
+}
+ol li:before {
+    color: #0b98cd;
+  font-weight: 100;
+  
+  position: absolute;
+  left:0;
+  
+  text-align: center;
+  counter-increment: list1;
+  /* Увеличиваем значение счетчика */
+  content: counter(list1) " ";
+  /* Выводим число */
+}
+ol ol {
+  counter-reset: list2;
+}
+ol ol li {
+   padding-left: 30px; 
+}
+ol ol li:before {
+    color: #0b98cd;
+  font-weight: 100;
+  
+  counter-increment: list2;
+  /* Увеличиваем значение счетчика вложенного списка */
+  content: counter(list1) "." counter(list2) ". ";
+  /* Выводим число */
+}
+
+.back_border ol li a{
+   color: #0b98cd;
+  border-bottom: 1px solid #0b98cd;
+  
+}
+.back_border ol li a{
+    color: #484848;
+                            
+        font-family: Roboto;
+font-size: 16px;
+}
+
+/* Инициируем счетчик */
+/* Инициируем счетчик вложенного списка */
+
+```
+
+
+
+
+```html
+
+  <ol>
+   <li>Lorem ipsum dolor sit amet.
+    <ol>
+     <li>Lorem ipsum dolor sit amet.</li>
+     <li>Lorem ipsum dolor sit amet.</li>
+     <li>Lorem ipsum dolor sit amet.</li>
+    </ol>
+   </li>
+   <li>Lorem ipsum dolor sit amet.
+    <ol>
+     <li>Lorem ipsum dolor sit amet.</li>
+     <li>Lorem ipsum dolor sit amet.</li>
+    </ol>
+   </li>
+  </ol>
+
+```

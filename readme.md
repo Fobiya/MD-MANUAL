@@ -3,7 +3,7 @@
 
 * https://pandao.github.io/editor.md/en.html
 
-* Last commit -  ``git commit -m '05.07.2020 19:--'``
+* Last commit -  ``git commit -m '08.07.2020 12:--'``
 
 
 
