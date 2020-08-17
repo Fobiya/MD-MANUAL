@@ -1,0 +1,5 @@
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^vanderbiltlinkages\.org$ [NC]
+RewriteRule ^(.*)$ /vanderbiltlinkages.org/ [L,R=301]
+
+

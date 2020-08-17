@@ -3,6 +3,7 @@
 <!--![](../../img/)-->
 #### links
 https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
+https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.html // ACF INFO
 
 ```php
       
@@ -22,8 +23,9 @@ https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
 // - template folder
       get_template_directory_uri();
       
-  
-
+// - home Page ID
+      get_option('page_on_front'); 
+      
 
 
       get_bloginfo('template_url');
