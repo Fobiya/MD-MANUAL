@@ -23,11 +23,11 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 // - template folder
       get_template_directory_uri();
       
-// - home Page ID
+
       get_option('page_on_front'); 
       
-
-<title><?php echo get_bloginfo( 'name' ); ?> | <?php echo the_title(); ?></title>
+// - WP title config
+      <title><?php echo get_bloginfo( 'name' ); ?> | <?php echo the_title(); ?></title>
 
       get_bloginfo('template_url');
       
@@ -39,6 +39,10 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
           remove_post_type_support( 'page', 'editor' );
       }, 99);
       
+// ACF option custom fields
+   
+    $imag_logo = get_field('logo','option'); 
+     
       
 ```
 
