@@ -15,7 +15,23 @@ https://wpml.org/
 Produced:
 > en-US
 
+
+
+``<?php 
+
+ACF plugin
+
+$message = get_field('email_text', 'options_de');
+
+<?php echo get_field('code_address', 'options_'.substr( get_bloginfo ( 'language' ), 0, 2 )); ?>
+
+?>``
+
+
+
 ```php
+
+
 
 
 
