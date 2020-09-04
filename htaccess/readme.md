@@ -52,6 +52,15 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^demo\.org$ [NC]
 RewriteRule ^(.*)$ http://demo.org/ [L,R=301]
 
+
+
+redirect in HTTPS ---------------------------------------------------------------------------
+
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 ```
 
 #### In htaccess link
