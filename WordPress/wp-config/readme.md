@@ -18,6 +18,12 @@ Then, while editing the wp-config.php file, add the following code snippet above
 define('ALLOW_UNFILTERED_UPLOADS', true);
 
 
+// // // URL SITE
+
+define( 'WP_HOME', 'http://demo.com' );
+define( 'WP_SITEURL', 'http://demo.com' );
+
+
 ```
 
 
