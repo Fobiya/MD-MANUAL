@@ -6,6 +6,19 @@
 
 ```javascript
 
+
+
+      $(".section_1 a.tab").click(function(event){
+         event.preventDefault();
+          $(".section_1 .box__tab a.tab").removeClass('act'); // menu 
+          $(this).addClass('act'); // menu 
+
+          var activeAdd = $(this).data('tab') ; 
+          $(".section_1 .box__content").removeClass('act'); // content 
+          $('.section_1 .box__content[data-tab="'+ activeAdd +'"]').addClass('act'); // content 
+      });
+        
+
       
       "use strict";
 
