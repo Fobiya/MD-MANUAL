@@ -20,7 +20,7 @@ add_image_size( 'image_300', 300, 200, true);
 ```html
 
     <picture>
-      <img class="images" srcset="<?php  the_post_thumbnail_url( 'image_540' );  ?>" alt="images_1" />
+      <img class="img" srcset="<?php  the_post_thumbnail_url( 'image_540' );  ?>" alt="img" />
       <source srcset="<?php  the_post_thumbnail_url( 'image_700' );  ?>" media="(max-width: 800px)" />
       <source srcset="<?php  the_post_thumbnail_url( 'image_300' );  ?>" media="(max-width: 350px)" />
     </picture>
