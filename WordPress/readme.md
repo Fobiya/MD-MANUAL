@@ -42,6 +42,11 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 // ACF option custom fields
    
     $imag_logo = get_field('logo','option'); 
+    
+    
+    
+    
+   <?=filemtime('css/style.css')?>   file update in when editing
      
       
 ```
