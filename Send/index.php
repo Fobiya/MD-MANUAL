@@ -29,8 +29,7 @@
 
 
 
-<script>
-    
+<script>     
 $(document).ready(function() {
     $(function() {
         $(".partnerrr[name=send]").click(function() {
@@ -41,6 +40,7 @@ $(document).ready(function() {
             var ref = btn.closest('form').find('[required]');
             var msg = btn.closest('form').find('input, textarea');
             var send_btn = btn.closest('form').find('.partnerrr[name=send]');
+            
           
             $(ref).each(function() {
                 if ($(this).val() == '') {
@@ -83,12 +83,27 @@ $(document).ready(function() {
                             type: 'POST',
                             url: '/send__mail.php',
                             data: msg,
+
+
+                            
                             success: function() {
                               
                               
                                 console.log(success);
 
                   
+                            },
+                            response: status(response) {
+                            
+                            
+                                  if (response.status >= 200 && response.status < 300) {
+                                return Promise.resolve(response)
+                              } else {
+                                return Promise.reject(new Error(response.statusText))
+                              }
+                            
+                                         
+                        
                             },
                             error: function(xhr, str) {
                                 alert('Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР°: ' + xhr.responseCode);
@@ -110,6 +125,19 @@ $(document).ready(function() {
                                     }
                                 }
                             }),
+        
+               response: status(response) {
+                            
+                            
+                                  if (response.status >= 200 && response.status < 300) {
+                                return Promise.resolve(response)
+                              } else {
+                                return Promise.reject(new Error(response.statusText))
+                              }
+                            
+                                         
+                        
+                            },
                             error: function(xhr, str) {
                                 alert('Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР°: ' + xhr.responseCode);
                             }

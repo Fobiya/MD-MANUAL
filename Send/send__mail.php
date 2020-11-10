@@ -14,7 +14,6 @@ if ( $method === 'POST' ) {
     $PHONE = $_POST['phone'];
     $email = $_POST['email'];
 
-    $message = $_POST['message'];
 
 	
 	
@@ -43,7 +42,6 @@ if ( $method === 'POST' ) {
     $PHONE = $_POST['phone'];
     $email = $_POST['email'];
 
-    $message = $_POST['message'];
 
 
 	foreach ( $_GET as $key => $value ) {
