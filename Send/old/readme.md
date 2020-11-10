@@ -1,35 +1,44 @@
+## Send mail 
+
+<!--![](../../img/)-->
+
+#### Send to Email
 
 
-          <form class="row" method="POST" action="javascript:void(null);">
-             <!-- Hidden Required Fields -->
-          <input type="hidden" name="project_name" value="Project Site">
-          <input type="hidden" name="admin_email" value="demo@gmail.com">
-          <input type="hidden" name="form_subject" value="Subject">
+```html
 
-              <div class="col m12 s12 l6 xl6">
-                <h5>name</h5>
-                <div class="form_input"><span class="field">
-                    <input class="name" type="text" name="name" required="" value="" placeholder=""></span></div>
-              </div>
-              <div class="col m12 s12 l6 xl6">
-                <h5>phone</h5>
-                <div class="form_input"><span class="field">
-                    <input class="phone" type="tel" name="phone" required="" value="" placeholder=""></span></div>
-              </div>
-              <div class="col m12 s12 l6 xl6">
-                <h5>email</h5>
-                <div class="form_input"><span class="field">
-                    <input class="mail" type="email" name="email" required="" value="" placeholder=""></span></div>
-              </div>
+<form class="row" method="POST" action="javascript:void(null);">
+     <!-- Hidden Required Fields -->
+  <input type="hidden" name="project_name" value="Project Site">
+  <input type="hidden" name="admin_email" value="demo@gmail.com">
+  <input type="hidden" name="form_subject" value="Subject">
 
-              <div class="col m12 s12 l12 xl12">
-                <button class="partnerrr" type="submit" name="send">Send</button>
-              </div>
-        </form>
+      <div class="col m12 s12 l6 xl6">
+        <h5>name</h5>
+        <div class="form_input"><span class="field">
+            <input class="name" type="text" name="name" required="" value="" placeholder=""></span></div>
+      </div>
+      <div class="col m12 s12 l6 xl6">
+        <h5>phone</h5>
+        <div class="form_input"><span class="field">
+            <input class="phone" type="tel" name="phone" required="" value="" placeholder=""></span></div>
+      </div>
+      <div class="col m12 s12 l6 xl6">
+        <h5>email</h5>
+        <div class="form_input"><span class="field">
+            <input class="mail" type="email" name="email" required="" value="" placeholder=""></span></div>
+      </div>
+
+      <div class="col m12 s12 l12 xl12">
+        <button class="partnerrr" type="submit" name="send">Send</button>
+      </div>
+</form>
+
+```
 
 
+```JavaScript
 
-<script>     
 $(document).ready(function() {
     $(function() {
         $(".partnerrr[name=send]").click(function() {
@@ -40,7 +49,6 @@ $(document).ready(function() {
             var ref = btn.closest('form').find('[required]');
             var msg = btn.closest('form').find('input, textarea');
             var send_btn = btn.closest('form').find('.partnerrr[name=send]');
-            
           
             $(ref).each(function() {
                 if ($(this).val() == '') {
@@ -83,27 +91,12 @@ $(document).ready(function() {
                             type: 'POST',
                             url: '/send__mail.php',
                             data: msg,
-
-
-                            
                             success: function() {
                               
                               
                                 console.log(success);
 
                   
-                            },
-                            response: status(response) {
-                            
-                            
-                                  if (response.status >= 200 && response.status < 300) {
-                                return Promise.resolve(response)
-                              } else {
-                                return Promise.reject(new Error(response.statusText))
-                              }
-                            
-                                         
-                        
                             },
                             error: function(xhr, str) {
                                 alert('Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР°: ' + xhr.responseCode);
@@ -125,19 +118,6 @@ $(document).ready(function() {
                                     }
                                 }
                             }),
-        
-               response: status(response) {
-                            
-                            
-                                  if (response.status >= 200 && response.status < 300) {
-                                return Promise.resolve(response)
-                              } else {
-                                return Promise.reject(new Error(response.statusText))
-                              }
-                            
-                                         
-                        
-                            },
                             error: function(xhr, str) {
                                 alert('Р’РѕР·РЅРёРєР»Р° РѕС€РёР±РєР°: ' + xhr.responseCode);
                             }
@@ -149,4 +129,6 @@ $(document).ready(function() {
         })
     });
 });
-</script>
+
+```
+<!--vue-and-the-wordpress-rest-api [Links](http://bionicteaching.com/vue-and-the-wordpress-rest-api/)-->

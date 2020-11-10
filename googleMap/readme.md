@@ -1,0 +1,94 @@
+
+## googleMap
+
+
+
+#### php
+
+```php
+
+
+
+```
+
+
+
+
+#### HTML
+
+```html
+
+
+
+```
+
+
+
+#### JavaScript
+
+```javascript
+
+        function initMap() {
+          const map = new google.maps.Map(document.getElementById("map-canvas"), {
+            zoom: 3,
+            center: { lat: 44.2, lng: 16.0 },
+        
+                           // How you would like to style the map. 
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#d3d3d3"}]},{"featureType":"transit","stylers":[{"color":"#808080"},{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#b3b3b3"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"weight":1.8}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#d7d7d7"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#ebebeb"}]},{"featureType":"administrative","elementType":"geometry","stylers":[{"color":"#a7a7a7"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#efefef"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#696969"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"color":"#737373"}]},{"featureType":"poi","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#d6d6d6"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#dadada"}]}], 
+              
+          });
+          setMarkers(map);
+        }
+        // Data for the markers consisting of a name, a LatLng and a zIndex for the
+        // order in which these markers should display on top of each other.
+        const beaches = [
+
+          ["Prospect Business Centre", 51.5100401,-0.0886743, 3],
+          ["The Oval", 34.6899961,33.0682964, 2],
+          ["Gulliver Business Centre", 50.4388,30.5233, 1],
+        ];
+
+        
+        
+        function setMarkers(map) {
+          // Adds markers to the map.
+          // Marker sizes are expressed as a Size of X,Y where the origin of the image
+          // (0,0) is located in the top left of the image.
+          // Origins, anchor positions and coordinates of the marker increase in the X
+          // direction to the right and in the Y direction down.
+          const image = {
+            url:
+              "images/map_marker.png",
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(37, 57),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32),
+          };
+            
+            
+            
+          // Shapes define the clickable region of the icon. The type defines an HTML
+          // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+          // The final coordinate closes the poly by connecting to the first coordinate.
+          const shape = {
+            coords: [1, 1, 1, 20, 18, 20, 18, 1],
+            type: "poly",
+          };
+
+          for (let i = 0; i < beaches.length; i++) {
+            const beach = beaches[i];
+            new google.maps.Marker({
+              position: { lat: beach[1], lng: beach[2] },
+              map,
+              icon: image,
+              shape: shape,
+              title: beach[0],
+              zIndex: beach[3],
+            });
+          }
+        }
+
+```
