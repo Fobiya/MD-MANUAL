@@ -3,6 +3,16 @@
 <!--![](../../img/)-->
 
 
+##### echo Alt and Title
+
+```php
+
+$image_alt = get_post_meta((int)get_post_meta( get_the_ID() , "_thumbnail_id" , true ), '_wp_attachment_image_alt', true);
+$image_title = get_the_title((int)get_post_meta( get_the_ID() , "_thumbnail_id" , true ));
+
+
+```
+
 ##### functions.php
 
 ```php
