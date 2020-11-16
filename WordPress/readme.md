@@ -6,6 +6,11 @@ https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
 https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.html // ACF INFO
 
 ```php
+
+// - New editor off
+    add_filter('use_block_editor_for_post', '__return_false');
+    add_filter('use_block_editor_for_page', '__return_false');
+
       
 // - template folder
       get_template_directory_uri();

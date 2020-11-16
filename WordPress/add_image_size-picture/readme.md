@@ -7,8 +7,21 @@
 
 ```php
 
+
+
 $image_alt = get_post_meta((int)get_post_meta( get_the_ID() , "_thumbnail_id" , true ), '_wp_attachment_image_alt', true);
 $image_title = get_the_title((int)get_post_meta( get_the_ID() , "_thumbnail_id" , true ));
+
+
+<?php $our_products_img_3 = get_post_meta(get_the_ID(), 'our_products_img_3', true); ?>
+
+<?php url = wp_get_attachment_url($our_products_img_3); ?> // echo url Standart function WP
+
+<?php $image_alt_img_3 = get_post_meta($our_products_img_3, '_wp_attachment_image_alt', true); ?> // echo alt Standart function WP
+
+
+<?php echo $image_alt_img_3; ?>
+
 
 
 ```
