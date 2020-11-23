@@ -52,6 +52,10 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
     
     
    <?=filemtime('css/style.css')?>   file update in when editing
+
+// includ file template
+
+    get_template_part( 'template-parts/portfolio-block' );
      
       
 ```
