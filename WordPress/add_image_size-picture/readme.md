@@ -35,21 +35,50 @@ add_image_size( 'image_700',700, 300, true );
 add_image_size( 'image_300', 300, 200, true);
 
 
+<?php
+    $image = get_sub_field('img');
+    if( $image ):
+
+        // Image variables.
+        $url = $image['url'];
+        $title = $image['title'];
+        $alt = $image['alt'];
+        $caption = $image['caption'];
+
+        // Thumbnail size attributes.
+        $size = 'thumbnail';
+        $seven_size = 'image_700';
+        $tree_size = 'image_400';
+
+// $thumb = $image['sizes'][ $size ];
+// $width = $image['sizes'][ $size . '-width' ];
+// $height = $image['sizes'][ $size . '-height' ]; 
+
+?>
+
+       <picture>
+          <img class="img__" src="<?= $url; ?>" alt="<?= $alt; ?>">
+          <source srcset="<?= $image['sizes'][ $seven_size ]; ?>" media="(max-width:1000px) and (min-width: 501px)" >
+          <source srcset="<?= $image['sizes'][ $tree_size ]; ?>" media="(max-width:500px)" >
+        </picture>
+
+  <?php endif; ?>
+
 ```
 
 ##### tag picture
 
 
 ```html
+    
+<picture>
+    <img class="img__" src="<?= $url; ?>" alt="<?= $alt; ?>">
+    <source srcset="<?= $image['sizes'][ $seven_size ]; ?>" media="(max-width:1000px) and (min-width: 501px)" >
+    <source srcset="<?= $image['sizes'][ $tree_size ]; ?>" media="(max-width:500px)" >
+</picture>
+    
 
-    <picture>
-      // images all echo 
-      <?php echo  the_post_thumbnail( 'image_540'); ?>
-     
-      <img class="img" srcset="<?php  the_post_thumbnail_url( 'image_540' );  ?>" alt="img" />
-      <source srcset="<?php  the_post_thumbnail_url( 'image_700' );  ?>" media="(max-width: 800px)" />
-      <source srcset="<?php  the_post_thumbnail_url( 'image_300' );  ?>" media="(max-width: 350px)" />
-    </picture>
+
 
 ```
 
