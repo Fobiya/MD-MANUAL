@@ -56,6 +56,12 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 // includ file template
 
     get_template_part( 'template-parts/portfolio-block' );
+
+
+
+// WP jQuery
+
+    jQuery(document).ready(function($) {  function  });
      
       
 ```
