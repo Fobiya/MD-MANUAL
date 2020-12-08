@@ -57,9 +57,10 @@ add_image_size( 'image_300', 300, 200, true);
 ?>
 
        <picture>
-          <img class="img__" src="<?= $url; ?>" alt="<?= $alt; ?>">
+          <!-- //strong typing-->
           <source srcset="<?= $image['sizes'][ $seven_size ]; ?>" media="(max-width:1000px) and (min-width: 501px)" >
           <source srcset="<?= $image['sizes'][ $tree_size ]; ?>" media="(max-width:500px)" >
+          <img class="img__" src="<?= $url; ?>" alt="<?= $alt; ?>">
         </picture>
 
   <?php endif; ?>
@@ -72,9 +73,10 @@ add_image_size( 'image_300', 300, 200, true);
 ```html
     
 <picture>
-    <img class="img__" src="<?= $url; ?>" alt="<?= $alt; ?>">
+    <!-- //strong typing-->
     <source srcset="<?= $image['sizes'][ $seven_size ]; ?>" media="(max-width:1000px) and (min-width: 501px)" >
     <source srcset="<?= $image['sizes'][ $tree_size ]; ?>" media="(max-width:500px)" >
+    <img class="img__" src="<?= $url; ?>" alt="<?= $alt; ?>">
 </picture>
     
 
