@@ -1,67 +1,86 @@
 ## WordPress
 
 <!--![](../../img/)-->
-#### links
-https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
-https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.html // ACF INFO
+
 
 ```php
 
-// - New editor off
-    add_filter('use_block_editor_for_post', '__return_false');
-    add_filter('use_block_editor_for_page', '__return_false');
 
-      
-// - template folder
-      get_template_directory_uri();
-      
-  
-// - ACF z-index
-      get_row_index()
+//** *Enable upload for webp image files.*/
+    function webp_upload_mimes($existing_mimes) {
+        $existing_mimes['webp'] = 'image/webp';
+        return $existing_mimes;
+    }
+    add_filter('mime_types', 'webp_upload_mimes');
 
-      <?php if(get_row_index() == '4'){ echo 'col m6 s12 l4 offset-l2 xl4 offset-xl2'; }else{ echo 'col m6 s12 l4 xl4'; } ?>
+
+
+//** * Enable preview / thumbnail for webp image files.*/
+    function webp_is_displayable($result, $path) {
+        if ($result === false) {
+            $displayable_image_types = array( IMAGETYPE_WEBP );
+            $info = @getimagesize( $path );
+
+            if (empty($info)) {
+                $result = false;
+            } elseif (!in_array($info[2], $displayable_image_types)) {
+                $result = false;
+            } else {
+                $result = true;
+            }
+        }
+
+        return $result;
+    }
+    add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
+
+    
+     
+// Remove css 
+
+  function smartwp_remove_wp_block_library_css(){
+      wp_dequeue_style( 'wp-block-library' );
+      wp_dequeue_style( 'wp-block-library-theme' );
+      wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+  } 
+  add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+
+     
+     
+     
+// add_image_size( 'image_540', 540, 250, true  );
+   add_image_size( 'image_700',700, 429, true );
+// add_image_size( 'image_300', 300, 200, true);
+   add_image_size( 'image_400', 400, 245, true);
+
+
+   add_image_size( 'slider_500',500, 306, true );
+   add_image_size( 'slider_300', 300, 184, true);
+
+
+// remove off editor_for_post and editor_for_page
+
+   add_filter('use_block_editor_for_post', '__return_false');
+   add_filter('use_block_editor_for_page', '__return_false'); 
+     
+// add rtl style
+       
+    if ( is_rtl() ) {
+      wp_enqueue_style( 'style-rtl', get_template_directory_uri() . '/style-rtl.css', array(), filemtime(get_template_directory() . '/style-rtl.css'), false);
+    }
+     
+    function enqueue_theme_files() { 
+        wp_enqueue_style( 'themeslug-style', get_stylesheet_uri() ); 
+        wp_style_add_data( 'themeslug-style', 'rtl', 'replace' ); 
+    } 
+    add_action( 'wp_enqueue_scripts', 'enqueue_theme_files' );
+     
       
 ```
 
 ```php
       
-// - template folder
-      get_template_directory_uri();
-      
 
-      get_option('page_on_front'); 
-      
-// - WP title config
-     
-      <?php echo get_bloginfo( 'name' ); ?> | <?php echo the_title(); ?>
-
-      get_bloginfo('template_url');
-
-// in function.php off standart editor
-     
-      add_action( 'init', function() {
-          remove_post_type_support( 'post', 'editor' );
-          remove_post_type_support( 'page', 'editor' );
-      }, 99);
-      
-// ACF option custom fields
-   
-    $imag_logo = get_field('logo','option'); 
-    
-    
-    
-    
-   <?=filemtime('css/style.css')?>   file update in when editing
-
-// includ file template
-
-    get_template_part( 'template-parts/portfolio-block' );
-
-
-
-// WP jQuery
-
-    jQuery(document).ready(function($) {  function  });
      
       
 ```
@@ -69,18 +88,8 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 
 ```php
 
-JavaScript
--- ClassTogglerScroll
--- tabClick
-WordPress
-Send
-css
-flexbox
-html/pug
-img
-php
-scss
+
 
 ```
 
-vue-and-the-wordpress-rest-api [Links](http://bionicteaching.com/vue-and-the-wordpress-rest-api/)
+<!--vue-and-the-wordpress-rest-api [Links](http://bionicteaching.com/vue-and-the-wordpress-rest-api/)-->
