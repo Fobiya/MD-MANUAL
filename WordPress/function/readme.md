@@ -78,8 +78,90 @@
       
 ```
 
+menu-mein [Links](https://github.com/Fobiya/MD-MANUAL/tree/master/WordPress/menu-mein/)
+
+
 ```php
       
+
+//  MENU ACF
+
+add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+
+function my_wp_nav_menu_objects( $items, $args ) {
+	
+	// loop
+	foreach( $items as &$item ) {
+      
+
+		 
+		// vars
+		$image = get_field('icon_img', $item);
+		
+		// append icon
+		if( $image ) {
+          
+      // Image variables.
+            $imgurl = $image['url'];
+            $imgtitle = $image['title'];
+            $imgalt = $image['alt'];
+            $imgcaption = $image['caption'];
+
+            // Thumbnail size attributes.
+//            $size = 'thumbnail';
+//            $thumb = $image['sizes'][ $size ];
+//            $width = $image['sizes'][ $size . '-width' ];
+//            $height = $image['sizes'][ $size . '-height' ];
+          
+        
+ 
+			$item->title .= '<img src="'.$image['url'].'" alt="'.$image['alt'].'" />';
+          
+     
+			
+		}
+      
+
+		
+	}
+
+	
+	// return
+	return $items;
+	
+}
+
+
+
+
+//  FILTER LI
+
+<!--
+add_filter( 'nav_menu_css_class' , '_namespace_menu_item_class' , 10, 2 );
+
+function _namespace_menu_item_class( $classesu, $item ) {       
+    $classesu[] = "nav-item"; // you can add multiple classes here
+  
+      foreach($classesu as $key => $item) {
+          $classesu[$key]->classes[] = 'my-class';
+      }
+
+  
+    return $classesu;
+  
+ 
+} 
+-->
+
+
+
+//  FILTER A
+
+add_filter('wp_nav_menu','add_menuclass');
+
+function add_menuclass($ulclass) {
+  return preg_replace('/<a/', '<a class="nav-link"', $ulclass, -1);
+}
 
      
       
