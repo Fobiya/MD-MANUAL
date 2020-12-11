@@ -28,6 +28,11 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 // - template folder
       get_template_directory_uri();
       
+      
+      src="img/
+      
+      src="<?= get_template_directory_uri(); ?>/img/
+      
 
       get_option('page_on_front'); 
       
