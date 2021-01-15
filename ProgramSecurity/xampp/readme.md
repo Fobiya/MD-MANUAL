@@ -5,9 +5,12 @@
 
 
 
-#### Windows Linux OS X 
+#### Windows, Linux, OS X 
 
 https://www.apachefriends.org/download.html
+
+* http://localhost/SITENAME/
+* http://localhost/phpmyadmin/
 
 ```html
 
