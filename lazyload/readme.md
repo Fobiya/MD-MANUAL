@@ -1,7 +1,7 @@
 
 ## lazyload
 
-![](../../img/lazyload-console.png)
+![](../img/lazyload-console.png)
 
 https://developers.google.com/speed/pagespeed/insights/?hl=ru
 
