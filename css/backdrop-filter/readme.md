@@ -32,6 +32,9 @@ Links
 
 https://codepen.io/fobiya/pen/OJRYPbb
 
+https://css-tricks.com/almanac/properties/b/backdrop-filter/
+
+
 https://habr.com/ru/post/264037/
 https://developer.mozilla.org/ru/docs/Web/CSS/backdrop-filter
 
