@@ -7,6 +7,14 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 
 ```php
 
+    <?= cssuni('style.css'); ?>
+
+    <?= jsuni('javascript.js');?>
+
+```
+
+```php
+
 // - New editor off
     add_filter('use_block_editor_for_post', '__return_false');
     add_filter('use_block_editor_for_page', '__return_false');
@@ -14,6 +22,11 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
       
 // - template folder
       get_template_directory_uri();
+
+      src="img/
+      
+      src="<?= get_template_directory_uri(); ?>/img/
+      
       
   
 // - ACF z-index
@@ -24,15 +37,17 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 ```
 
 ```php
-      
-// - template folder
-      get_template_directory_uri();
-      
-      
-      src="img/
-      
-      src="<?= get_template_directory_uri(); ?>/img/
-      
+
+https://cdnjs.com/libraries/jquery
+
+// WP jQuery
+
+    jQuery(document).ready(function($) {  function  });
+
+```
+
+```php
+
 
       get_option('page_on_front'); 
       
@@ -63,11 +78,6 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
     get_template_part( 'template-parts/portfolio-block' );
 
 
-
-// WP jQuery
-
-    jQuery(document).ready(function($) {  function  });
-     
       
 ```
 
