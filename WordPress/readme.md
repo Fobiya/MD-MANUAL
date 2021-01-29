@@ -45,6 +45,17 @@ https://cdnjs.com/libraries/jquery
     jQuery(document).ready(function($) {  function  });
 
 ```
+```php
+
+      
+    get_template_part()
+
+// includ file template
+
+    get_template_part( 'template-parts/portfolio-block' );
+   
+      
+```
 
 ```php
 
@@ -72,10 +83,6 @@ https://cdnjs.com/libraries/jquery
     
     
    <?=filemtime('css/style.css')?>   file update in when editing
-
-// includ file template
-
-    get_template_part( 'template-parts/portfolio-block' );
 
 
       
