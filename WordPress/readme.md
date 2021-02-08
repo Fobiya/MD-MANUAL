@@ -15,6 +15,19 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 
 ```php
 
+
+
+// - site url
+
+     get_site_url(); 
+     
+     echo get_site_url( null, '', 'https' );
+     echo get_site_url( null, '' );    // Name domen
+
+     global $wp;
+     echo home_url( $wp->request )
+     
+
 // - New editor off
     add_filter('use_block_editor_for_post', '__return_false');
     add_filter('use_block_editor_for_page', '__return_false');
