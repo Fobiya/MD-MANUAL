@@ -14,6 +14,36 @@
 
 ```php
 
+<?php // check if the flexible content field has rows of data
+if( have_rows('home_pages') ):
+     // loop through the rows of data
+    while ( have_rows('home_pages') ) : the_row(); ?>
+    <?php if( get_row_layout() == 'section_1' ): ?>
+    
+    
+    <?php elseif( get_row_layout() == 'section_2' ): ?>
+    
+
+    <?php endif;
+    endwhile;
+endif; ?>
+
+
+
+
+
+  <?php if( get_sub_field('title')): ?><!-- if under__the -->
+    <?php the_sub_field('title'); ?>
+  <?php endif; ?>
+
+  <?php if( get_sub_field('paragraph')): ?><!-- if under__the -->
+    <?php the_sub_field('paragraph'); ?>
+  <?php endif; ?>
+
+  <?php if( get_sub_field('content')): ?><!-- if under__the -->
+    <?php the_sub_field('content'); ?>
+  <?php endif; ?>
+
 
 // repiater
 
@@ -25,9 +55,8 @@
             $title = get_sub_field('title');
             $paragraph = get_sub_field('paragraph');
             $link = get_sub_field('link');  ?>
-
-
-
+            
+            
 
           <?php endwhile; ?>
 
@@ -36,20 +65,19 @@
           
 // link
          
-      <?php 
-        if( $link ): 
+      <?php if( $link ): 
             $link_url = $link['url'];
             $link_title = $link['title'];
-            ?>
+            $link_target = $link['target'] ? $link['target'] : '_self'; ?>
 
-          <a href="<?php echo esc_url( $link_url ); ?>" class="btn__casinos-block" target="_blank"><?php echo esc_html( $link_title ); ?></a>
-        <?php endif; ?>
+          <a href="<?php echo esc_url( $link_url ); ?>" class="btn__casinos-block" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+      <?php endif; ?>
 
           
 // image
 
       <?php if( !empty( $image ) ): ?>
-            <img src="<?php echo esc_url($image['url']); ?>"  alt="<?php echo esc_attr($image['alt']); ?>">
+          <img src="<?php echo esc_url($image['url']); ?>"  alt="<?php echo esc_attr($image['alt']); ?>">
       <?php endif; ?>        
 
                 
