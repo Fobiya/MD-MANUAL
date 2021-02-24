@@ -65,20 +65,24 @@ endif; ?>
           
 // link
          
-      <?php if( $link ): 
-            $link_url = $link['url'];
-            $link_title = $link['title'];
-            $link_target = $link['target'] ? $link['target'] : '_self'; ?>
+    <?php $link = get_sub_field('link'); ?>
+ 
+    <?php if( $link ): 
+          $link_url = $link['url'];
+          $link_title = $link['title'];
+          $link_target = $link['target'] ? $link['target'] : '_self'; ?>
 
-          <a href="<?php echo esc_url( $link_url ); ?>" class="btn__casinos-block" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-      <?php endif; ?>
+        <a href="<?php echo esc_url( $link_url ); ?>" class="btn__casinos-block" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+    <?php endif; ?>
 
           
 // image
 
-      <?php if( !empty( $image ) ): ?>
-          <img src="<?php echo esc_url($image['url']); ?>"  alt="<?php echo esc_attr($image['alt']); ?>">
-      <?php endif; ?>        
+    <?php $image = get_sub_field('img'); ?>
+
+    <?php if( !empty( $image ) ): ?>
+        <img src="<?php echo esc_url($image['url']); ?>"  alt="<?php echo esc_attr($image['alt']); ?>">
+    <?php endif; ?>        
 
                 
 
