@@ -19,7 +19,8 @@ https://misha.agency/wordpress/wp_nav_menu.html
     <?php  wp_nav_menu( $argsm );?>
     
     
-    
+        'link_before'     => '<li class="header__social-item DAAA"><a href="#" class="header__social-link DOOO">',
+        'link_after'      => '</a></li>', 
     
   <?php   
    if( $menu_items = wp_get_nav_menu_items('Меню для шапки') ) { // "Меню для шапки" - это название моего меню. Вы можете также использовать ID или ярлык
