@@ -21,6 +21,28 @@ https://misha.agency/wordpress/wp_nav_menu.html
     
         'link_before'     => '<li class="header__social-item DAAA"><a href="#" class="header__social-link DOOO">',
         'link_after'      => '</a></li>', 
+        
+        
+    wp_nav_menu( [
+        'theme_location'  => '',
+        'menu'            => '', 
+        'container'       => 'div', 
+        'container_class' => '', 
+        'container_id'    => '',
+        'menu_class'      => 'menu', 
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => '',
+    ] );
+
+   https://wp-kama.ru/function/wp_nav_menu
     
   <?php   
    if( $menu_items = wp_get_nav_menu_items('Меню для шапки') ) { // "Меню для шапки" - это название моего меню. Вы можете также использовать ID или ярлык
@@ -162,7 +184,7 @@ https://misha.agency/wordpress/wp_nav_menu.html
           )
       );
 
-      
+
 
 
 ```
