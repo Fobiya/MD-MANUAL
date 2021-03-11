@@ -10,6 +10,28 @@
 
 ```
 
+
+##### functions.php delete uncategorized
+```php
+
+add_filter('get_the_categories', 'exc_cat');
+
+function exc_cat($cats) {
+        //not on admin pages
+        if(!is_admin()){
+           $exc = array('uncategorized');
+            foreach ($cats as $i=>$cat){
+                if(in_array($cat->name, $exc)){
+                   unset($cats[$i]); 
+                }
+            }
+        }
+    return $cats;
+    }
+    
+```
+
+
 ```php
 
 function dimox_breadcrumbs() {

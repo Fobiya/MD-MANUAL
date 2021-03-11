@@ -61,6 +61,27 @@ is_category( array( 9, 'blue-cheese', 'Stinky Cheeses' ) );
 
 ```
 
+
+### ADD IN PAGES PARAMETR Category
+
+![](../../img/pages-category.png)
+
+
+```php
+
+
+    function myplugin_settings() {  
+        // Add tag metabox to page
+        register_taxonomy_for_object_type('post_tag', 'page'); 
+        // Add category metabox to page
+        register_taxonomy_for_object_type('category', 'page');  
+    }
+     // Add to the admin_init hook of your theme functions.php file 
+    add_action( 'init', 'myplugin_settings' );
+    
+``` 
+
+
 <!--#### In SCSS-->
 
 <!--MD-MANUAL/scss/media/ [Links](https://github.com/Fobiya/MD-MANUAL/tree/master/scss/media)-->
