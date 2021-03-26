@@ -18,7 +18,18 @@ $('select.fanumber').on("change",function(){
 });
 
 
-      
+$('select[name="co_key"],select[name="co_work"]').change(function(){
+    var sum = 1; 
+    $('.connected').find(":selected").each(function(){
+    // console.log($(this).val());
+
+        sum = 1 + sum * parseInt($(this).val());
+        // console.log(sum);
+        $('.box__price.co span').html( Math.trunc(sum)); 
+        $('.co_price').val( Math.trunc(sum)); 
+    });
+  });
+          
 
 ```
 
@@ -76,6 +87,52 @@ $('select.fanumber').on("change",function(){
     <button class="send" type="submit" name="send">SEND</button>
   
   </form>
+  
+  
+  
+  
+  
+  
+  
+  <form class="connected" method="POST" action="javascript:void(null);">
+          <!-- Hidden Required Fields-->
+          <input type="hidden" name="name_pack" value="I connected">
+          <input class="co_price" type="hidden" name="co_price" value="I connected">
+          <div class="form_input"><span class="field">
+              <input class="name" type="text" name="firstname" required="" value="" placeholder="First name"></span></div>
+          <div class="form_input"><span class="field">
+              <input class="name" type="text" name="lastname" required="" value="" placeholder="Last name"></span></div>
+          <div class="form_select ion-arrow-down-b"><span class="field"> 
+              <select name="co_key" required="" placeholder="Number of keys">
+                <option value="" disabled="" selected="">Number of keys</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select></span></div>
+          <div class="form_select ion-arrow-down-b"><span class="field"> 
+              <select name="co_work" required="" placeholder="Working month">
+                <option value="" disabled="" selected="">Working month</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select></span></div>
+          <div class="form_input"><span class="field">
+              <input class="mail" type="email" name="email" required="" value="" placeholder="Your Email"></span></div>
+          <div class="box__price co">Price: 
+            <span>3</span>
+          </div>
+          <button class="purpur" type="submit" name="send">order service</button>
+        </form>
+  
 
 ```
 
