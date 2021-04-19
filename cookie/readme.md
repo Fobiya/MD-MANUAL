@@ -6,7 +6,7 @@
 #### php
 
 ```php
-
+ss
 <?php echo $_COOKIE['cookie']; ?>
     
 <?php if (isset($_COOKIE['cookie'])){ ?> 
