@@ -94,6 +94,37 @@ endif; ?>
 ```
 
 
+#### // option
+
+```php
+
+    <?php if( have_rows('phone_namber','option') ): ?>
+
+        <?php while( have_rows('phone_namber','option') ): the_row();
+            // vars
+            $title = get_sub_field('title');
+            $link = get_sub_field('link_namber');  ?>
+
+            <div class="col px-0 py-2 pb-lg-0">
+                <div class="numbers__wrapper">
+                    <p class="-small -f-semi-bold"><?= $title; ?></p>
+
+                    <?php if( $link ): 
+                          $link_url = $link['url'];
+                          $link_title = $link['title'];
+                          $link_target = $link['target'] ? $link['target'] : '_self'; ?>
+
+                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="-small" rel="nofollow"><?php echo esc_html( $link_title ); ?></a>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+
+          <?php endwhile; ?>
+
+      <?php endif; ?>
+
+```
 
 https://www.advancedcustomfields.com/
 
