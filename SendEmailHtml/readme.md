@@ -1,6 +1,12 @@
 
 ## Email Send Html
 
+#### Test mail 
+https://www.mail-tester.com/
+
+---
+
+
 https://sendpulse.com/ru/blog/html-coding-for-email
 
 https://developers.google.com/gmail/design/css
@@ -65,16 +71,7 @@ ss
 
  jQuery(document).ready(function($) { 
    
-  $('.add__cookie').click(function(){
-      document.cookie = "cookie=1; max-age=3600";
-      location.reload();
-  });
-   
-  $('.remove__cookie').click(function(){
-      document.cookie = "cookie=1; max-age=0";
-      location.reload();
-  });
-                                     
+                              
 });
 
 
