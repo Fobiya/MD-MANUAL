@@ -41,6 +41,16 @@
     }
    });
 
+
+
+// AutoFocus offf
+
+  $('[data-fancybox]').fancybox({
+    touch: false,
+    autoFocus: false
+  });
+
+
 ```
 
 
