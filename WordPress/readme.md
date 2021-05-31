@@ -103,8 +103,13 @@ https://cdnjs.com/libraries/jquery
     
    <?=filemtime('css/style.css')?>   file update in when editing
 
-
+// REG Replace
+  
       
+<?= preg_replace('![^0-9+]+!', '', get_field("telefon", "option")) ?>
+                 
+                           
+                  
 ```
 
 

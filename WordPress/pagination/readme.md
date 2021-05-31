@@ -8,7 +8,19 @@
 
 ```php
 
+
 <?php
+
+if( get_adjacent_post(false, '', true) ) { 
+ previous_post_link('%link', '← Previous Post');
+}
+if( get_adjacent_post(false, '', false) ) { 
+ next_post_link('%link', 'Next Post →');
+}
+
+next_post_link and previous_post_link
+
+
 // 1 значение по умолчанию
 $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 
