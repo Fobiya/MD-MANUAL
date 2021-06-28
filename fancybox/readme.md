@@ -53,8 +53,14 @@
 
 ```
 
+# add in wp
 
+```php
 
+  	wp_enqueue_style('fancybox', get_template_directory_uri() . '/css/jquery.fancybox.css');
+	wp_enqueue_script('fansy-box', get_template_directory_uri() . '/js/jquery.fancybox.js', array('jquery'), null, true);
+
+```
 
 
 #### In CSS
