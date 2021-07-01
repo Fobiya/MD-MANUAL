@@ -27,3 +27,30 @@ $('.cmsmasters_toggles .cmsmasters_toggle_wrap').attr('data-tags', 'all');
       
 
 ```
+
+#toggleClass
+
+```javascript
+
+$('.defer').click(function(){
+  $('.open').toggleClass('oppenned');
+});
+
+
+$(".section__8 .list li").click(function(e){
+  e.preventDefault();
+  
+  $(this).toggleClass('active');
+  
+  $(this).toggleClass('ion-ios-plus ion-ios-minus');
+   
+});
+
+
+$('.nav-toggle').on('click', function() {
+  $(this).toggleClass('open');
+  $('.menu-left').toggleClass('collapse');
+});
+
+
+```

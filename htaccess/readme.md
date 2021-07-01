@@ -61,6 +61,9 @@ RewriteCond %{HTTPS} off
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
+
+# Redirect 301 https://link.com  https://link1.com 
+
 ```
 
 #### In htaccess link

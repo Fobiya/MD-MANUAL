@@ -3,6 +3,17 @@
 <!--![](../../img/)-->
 
 
+```php
+
+add_image_size( 'homepagethumb', 250, 185, true );
+add_image_size( 'nazvanie-moego-razmera', 278, 185, true  );
+
+<div class="single-portfolio single-portfolio-fourth" data-fancybox="images-slider" href="<?= $izobrazhenie['url'] ?>">
+  <?php // $image_url = $izobrazhenie['thumb']; ?>
+<img class="img-fluid" src="<?php echo $izobrazhenie['sizes']['nazvanie-moego-razmera']; ?>">
+
+```
+
 ##### echo Alt and Title
 
 ```php
@@ -21,7 +32,6 @@ $image_title = get_the_title((int)get_post_meta( get_the_ID() , "_thumbnail_id" 
 
 
 <?php echo $image_alt_img_3; ?>
-
 
 
 ```

@@ -32,9 +32,6 @@ $message = get_field('email_text', 'options_de');
 ```php
 
 
-
-
-
 <?php
 $currentlang = get_bloginfo('language');
 if($currentlang=="en-US"):?>
@@ -57,6 +54,17 @@ elseif( get_bloginfo('language') == 'ko-KR' ) : ?>
 // Code for other language version
 
 endif; ?>
+
+
+
+<?php if (pll_current_language() == 'uk') { ?>
+uk
+<?php } elseif (pll_current_language() == 'ru') { ?>
+ru
+<?php } elseif (pll_current_language() == 'en') { ?>
+en
+<?php }  ?>
+
 
 
 ```
