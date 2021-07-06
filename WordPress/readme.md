@@ -55,9 +55,22 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
       
 ```
 
-```php
+### jquery cdnjs
 
 https://cdnjs.com/libraries/jquery
+
+```php
+
+<?php
+function my_scripts_method() {
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js');
+    wp_enqueue_script( 'jquery' );
+}    
+ 
+add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+?>
+
 
 // WP jQuery
 
