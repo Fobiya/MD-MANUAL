@@ -8,6 +8,9 @@
 add_image_size( 'homepagethumb', 250, 185, true );
 add_image_size( 'nazvanie-moego-razmera', 278, 185, true  );
 
+
+<img data-src="<?= get_the_post_thumbnail_url( get_the_ID(), 'nazvanie-moego-razmera' ); ?>" alt="">
+
 <div class="single-portfolio single-portfolio-fourth" data-fancybox="images-slider" href="<?= $izobrazhenie['url'] ?>">
   <?php // $image_url = $izobrazhenie['thumb']; ?>
 <img class="img-fluid" src="<?php echo $izobrazhenie['sizes']['nazvanie-moego-razmera']; ?>">
