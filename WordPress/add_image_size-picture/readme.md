@@ -9,6 +9,28 @@ add_image_size( 'homepagethumb', 250, 185, true );
 add_image_size( 'nazvanie-moego-razmera', 278, 185, true  );
 
 
+
+<?php if( have_rows('fotogalereya') ): ?>
+  <div class="slider-nav">
+    <?php while( have_rows('fotogalereya') ): the_row();
+        // vars
+
+      $image = get_sub_field('img');   ?>
+
+       <div>
+        <div class="box__smoll">
+          <?php if( !empty( $image ) ): 
+           $smoll__imgurl = $image['sizes']['smoll__img'];  ?>
+            <img src="<?php echo $smoll__imgurl; ?>"  alt="img2"> 
+          <?php endif; ?>   
+         </div>
+       </div>
+
+    <?php endwhile; ?>
+  </div>
+<?php endif; ?>
+
+
 <img data-src="<?= get_the_post_thumbnail_url( get_the_ID(), 'nazvanie-moego-razmera' ); ?>" alt="">
 
 <div class="single-portfolio single-portfolio-fourth" data-fancybox="images-slider" href="<?= $izobrazhenie['url'] ?>">
