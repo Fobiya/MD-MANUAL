@@ -7,38 +7,85 @@
 
 ```php
 
-function create_blog()
-{
-	register_post_type('blog', array(
+function create_doctors(){
+	register_post_type('doctors', array(
 		'labels' => array(
-			'name'				=> __('Blog', 'blog-admin'),
-			'singular_name'   	=> __('blog', 'blog-admin'),
-			'add_new'		 	=> __('Add post blog', 'blog-admin'),
-			'add_new_item'		=> __('Add post blog', 'blog-admin'),
-			'edit'				=> __('Edit post blog', 'blog-admin'),
-			'edit_item'	   		=> __('Edit post blog', 'blog-admin'),
-			'new_item'			=> __('New post blog', 'blog-admin'),
-			'all_items'	   		=> __('All post blog', 'blog-admin'),
-			'view'				=> __('View post blog', 'blog-admin'),
-			'view_item'	   		=> __('View post blog', 'blog-admin'),
-			'search_items'		=> __('Search post blog', 'blog-admin'),
-			'not_found'	   		=> __('Webinars not found', 'blog-admin'),
+			'name'				=> __('Doctors', 'doctors-admin'),
+			'singular_name'   	=> __('doctors', 'doctors-admin'),
+			'add_new'		 	=> __('Add post doctors', 'doctors-admin'),
+			'add_new_item'		=> __('Add post doctors', 'doctors-admin'),
+			'edit'				=> __('Edit post doctors', 'doctors-admin'),
+			'edit_item'	   		=> __('Edit post doctors', 'doctors-admin'),
+			'new_item'			=> __('New post doctors', 'doctors-admin'),
+			'all_items'	   		=> __('All post doctors', 'doctors-admin'),
+			'view'				=> __('View post doctors', 'doctors-admin'),
+			'view_item'	   		=> __('View post doctors', 'doctors-admin'),
+			'search_items'		=> __('Search post doctors', 'doctors-admin'),
+			'not_found'	   		=> __('Doctors not found', 'doctors-admin'),
 		),
 		'public' => true, // show in admin panel?
 		'menu_position' => 22,
 		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes'),
-		'taxonomies' => array('category_blog'),
-		'has_archive' => false,
+//		'taxonomies' => array('category_doctors'),
+		'has_archive' => true,
 		'capability_type' => 'post',
-		'menu_icon'   => 'dashicons-portfolio',
-		'rewrite' => array('slug' => 'blog'),
+		'menu_icon'   => 'dashicons-businessperson',
+		'rewrite' => array('slug' => 'doctors', 'with_front' => false ),
 	));
 }
-add_action('init', 'create_blog');
+add_action('init', 'create_doctors');
 
 
 
 ```
+
+
+
+
+```php
+
+function video_person(){
+	register_post_type('person', array(
+		'labels' => array(
+			'name'				=> __('Video person', 'person-admin'),
+			'singular_name'   	=> __('Video person', 'person-admin'),
+			'add_new'		 	=> __('Add post person', 'person-admin'),
+			'add_new_item'		=> __('Add post person', 'person-admin'),
+			'edit'				=> __('Edit post person', 'person-admin'),
+			'edit_item'	   		=> __('Edit post person', 'person-admin'),
+			'new_item'			=> __('New post person', 'person-admin'),
+			'all_items'	   		=> __('All post person', 'person-admin'),
+			'view'				=> __('View post person', 'person-admin'),
+			'view_item'	   		=> __('View post person', 'person-admin'),
+			'search_items'		=> __('Search post person', 'person-admin'),
+			'not_found'	   		=> __('Presentation not found', 'person-admin'),
+		),
+		'public' => true, // show in admin panel?
+		'menu_position' => 37,
+		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes'),
+		'taxonomies' => array('category-person'),
+		'has_archive' => false,
+		'capability_type' => 'post',
+		'menu_icon'   => 'dashicons-format-video',
+		'rewrite' => array('slug' => 'person'),
+	));
+}
+add_action('init', 'video_person');
+
+
+
+function taxonomy_link( $link, $term, $taxonomy ) {
+    if ( $taxonomy !== 'person' )
+        return $link;
+    return str_replace( 'person/person/', '', $link );
+}
+add_filter( 'term_link', 'taxonomy_link', 10, 3 );
+
+
+```
+
+
+
 
 ##### // Registering Custom Post Type Themes
 
