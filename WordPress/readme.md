@@ -16,6 +16,13 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 ```php
 
 
+// - site wp-config.php
+
+// off AUTOMATIC  UPDATER  plugin template 
+
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
+
+
 
 // - site url
 
