@@ -44,42 +44,60 @@ add_action('init', 'create_doctors');
 
 ```php
 
-function video_person(){
-	register_post_type('person', array(
+//   http://news.com/news/post1
+
+// fix category 'news'  http://news.com/post1
+
+
+function news()
+{
+	register_post_type('news', array(
 		'labels' => array(
-			'name'				=> __('Video person', 'person-admin'),
-			'singular_name'   	=> __('Video person', 'person-admin'),
-			'add_new'		 	=> __('Add post person', 'person-admin'),
-			'add_new_item'		=> __('Add post person', 'person-admin'),
-			'edit'				=> __('Edit post person', 'person-admin'),
-			'edit_item'	   		=> __('Edit post person', 'person-admin'),
-			'new_item'			=> __('New post person', 'person-admin'),
-			'all_items'	   		=> __('All post person', 'person-admin'),
-			'view'				=> __('View post person', 'person-admin'),
-			'view_item'	   		=> __('View post person', 'person-admin'),
-			'search_items'		=> __('Search post person', 'person-admin'),
-			'not_found'	   		=> __('Presentation not found', 'person-admin'),
+			'name'				=> __('Новости', 'news-admin'),
+			'singular_name'   	=> __('Новости', 'news-admin'),
+			'add_new'		 	=> __('Add post news', 'news-admin'),
+			'add_new_item'		=> __('Add post news', 'news-admin'),
+			'edit'				=> __('Edit post news', 'news-admin'),
+			'edit_item'	   		=> __('Edit post news', 'news-admin'),
+			'new_item'			=> __('New post news', 'news-admin'),
+			'all_items'	   		=> __('All post news', 'news-admin'),
+			'view'				=> __('View post news', 'news-admin'),
+			'view_item'	   		=> __('View post news', 'news-admin'),
+			'search_items'		=> __('Search post news', 'news-admin'),
+			'not_found'	   		=> __('News not found', 'news-admin'),
 		),
 		'public' => true, // show in admin panel?
-		'menu_position' => 37,
+		'menu_position' => 29,
 		'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'page-attributes'),
-		'taxonomies' => array('category-person'),
-		'has_archive' => false,
-		'capability_type' => 'post',
-		'menu_icon'   => 'dashicons-format-video',
-		'rewrite' => array('slug' => 'person'),
+//		'taxonomies' => array('category_news'),
+		'has_archive' => true,
+		'capability_type' => 'page',
+		'menu_icon'   => 'dashicons-admin-page',
+		'rewrite' => array('slug' => '/', 'with_front' => false ),
 	));
 }
-add_action('init', 'video_person');
+add_action('init', 'news');
 
 
 
-function taxonomy_link( $link, $term, $taxonomy ) {
-    if ( $taxonomy !== 'person' )
-        return $link;
-    return str_replace( 'person/person/', '', $link );
+function sh_parse_request_tricksy( $query ) {
+
+    // Only loop the main query
+    if ( ! $query->is_main_query() ) {
+        return;
+    }
+
+    // Only loop our very specific rewrite rule match
+    if ( 2 != count( $query->query )
+        || ! isset( $query->query['page'] ) )
+        return;
+
+    // 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
+    if ( ! empty( $query->query['name'] ) ) {
+        $query->set( 'post_type', array( 'news' ) );
+    }
 }
-add_filter( 'term_link', 'taxonomy_link', 10, 3 );
+add_action( 'pre_get_posts', 'sh_parse_request_tricksy' );
 
 
 ```
