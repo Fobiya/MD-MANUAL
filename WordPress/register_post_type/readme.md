@@ -87,9 +87,13 @@ function sh_parse_request_tricksy( $query ) {
         return;
     }
 
-    // Only loop our very specific rewrite rule match
+   //  Only loop our very specific rewrite rule match
     if ( 2 != count( $query->query )
-        || ! isset( $query->query['page'] ) )
+        || ! isset( $query->query['page'] ) );
+        return;
+  
+    if ( 3 != count( $query->query )
+        || ! isset( $query->query['post'] ) );
         return;
 
     // 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
@@ -98,7 +102,6 @@ function sh_parse_request_tricksy( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'sh_parse_request_tricksy' );
-
 
 ```
 
