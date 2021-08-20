@@ -5,7 +5,6 @@
 
 ##### ADD IN PAGES PARAMETR Category
 
-
 ```php
 
   function myplugin_settings() {  
@@ -17,6 +16,17 @@
    // Add to the admin_init hook of your theme functions.php file 
   add_action( 'init', 'myplugin_settings' );
 
+
+ ```
+ 
+##### echo content in ID POST
+
+```php
+ 
+    $post27 = get_post( 960 );
+
+    the_field('content_text', $post27);
+    
 
  ```
 
