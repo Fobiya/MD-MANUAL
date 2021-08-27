@@ -15,6 +15,22 @@ https://cdnjs.com/libraries/lazysizes
 	
 ```
 
+```html
+       
+    // Используйте леневую загрузку устаноиви ее в data-lazy атрибудет
+    // В нем укажите источник к файлу в место SRC
+
+    <img data-lazy="img/lazyfonz1.png"/>
+
+    $('.lazy').slick({
+      lazyLoad: 'ondemand',
+      slidesToShow: 3,
+      slidesToScroll: 1
+    });
+        
+
+```
+
 #### link
 
 codelab-use-lazysizes-to-lazyload-images [Links](https://web.dev/codelab-use-lazysizes-to-lazyload-images/)
