@@ -128,7 +128,18 @@ add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
       
 <?= preg_replace('![^0-9+]+!', '', get_field("telefon", "option")) ?>
                  
-                           
+
+// Function Current User
+                 
+<?php if(current_user_can('editor')) { ?> 
+    <!-- Stuff here for editors -->
+<?php } ?>
+
+<?php if(current_user_can('administrator')) { ?>
+    <!-- Stuff here for administrators -->
+<?php } ?>
+                 
+                 
                   
 ```
 
