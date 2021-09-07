@@ -1,5 +1,6 @@
 ## substr
 
+## mb_substr  russian
 <!--![](../../img/three-column-flexbox.png)-->
 
 
