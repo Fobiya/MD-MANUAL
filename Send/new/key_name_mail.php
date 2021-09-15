@@ -23,6 +23,16 @@ if ( $method === 'POST' ) {
 			if ($key == "s1" || $key == "s2" || $key == "s3" || $key == "s4" || $key == "s5" || $key == "s6" || $key == "s7" || $key == "s8" || $key == "s9" || $key == "s10" || $key == "s11" || $key == "s12" || $key == "s13" || $key == "s14" || $key == "s15" || $key == "s16" || $key == "s17" || $key == "s18" || $key == "s19" || $key == "s20") {$key = "Выездная церемония";}
 			if ($key == "u1" || $key == "u2" || $key == "u3" || $key == "u4" || $key == "u5" || $key == "u6" || $key == "u7" || $key == "u8" || $key == "u9" || $key == "u10" || $key == "u11" || $key == "u12" || $key == "u13" || $key == "u14" || $key == "u15" || $key == "u16" || $key == "u17" || $key == "u18" || $key == "u19" || $key == "u20") {$key = "Услуги";}
 			if ($key == "k1" || $key == "k2" || $key == "k3" || $key == "k4" || $key == "k5" || $key == "k6" || $key == "k7" || $key == "k8" || $key == "k9" || $key == "k10" || $key == "k11" || $key == "k12" || $key == "k13" || $key == "k14" || $key == "k15" || $key == "k16" || $key == "k17" || $key == "k18" || $key == "k19" || $key == "k20") {$key = "Прочие свадебные услуги";}
+          
+          
+          if ($key == "name") {$key = "Имя";} 
+          if ($key == "text") {$key = "Телефон";} 
+          if ($key == "priseauto") {$key = "Срок лизинга"; $value = $value.' Mес'; } 
+          if ($key == "month") {$key = "Стоимость авто"; $value = $value.' $';} 
+          if ($key == "advance") {$key = "Авансовый платеж"; $value = $value.' %';} 
+          if ($key == "monthprice") {$key = "Расчет";} 
+          if ($key == "urlsite") {$key = "Ссылка";} 
+          
 			$message .= "
 			" . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
 			<td style='padding: 10px; border: #e9e9e9 1px solid;'><b>$key</b></td>
