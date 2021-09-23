@@ -129,4 +129,43 @@
 
 ```
 
+
+
+
+
+
+```php
+
+
+<?php 
+global $postid;
+$postid = get_the_ID();    ?>
+              
+<ol class="commentlist">
+    <?php    
+        //Gather comments for a specific page/post 
+        $comments = get_comments(array(
+            'post_id' => $postid,
+            'status' => 'approve' //Change this to the type of comments to be displayed
+        ));
+
+        //Display the list of comments
+        wp_list_comments(array(
+            'per_page' => 10, //Allow comment pagination
+            'reverse_top_level' => false //Show the latest comments at the top of the list
+        ), $comments);
+
+    ?>
+</ol>
+             
+  <?php comment_form( $args, $postid ); ?>    
+
+```
+
+
+
+
+
+
+
 <!--vue-and-the-wordpress-rest-api [Links](http://bionicteaching.com/vue-and-the-wordpress-rest-api/)-->
