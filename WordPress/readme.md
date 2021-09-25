@@ -14,6 +14,8 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 ```
 
 ```php
+//id HOME 
+$home_page_id = get_option( 'page_on_front' );
 
 
 // - site wp-config.php
