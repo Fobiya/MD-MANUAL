@@ -4,6 +4,8 @@
 
 https://wpml.org/
 
+`` <?php _e( 'See', 'see-stryng'); ?> ``
+
 ``<?php bloginfo('language'); ?>``
 
 ``<?php echo substr( get_bloginfo ( 'language' ), 0, 2 );?>``
