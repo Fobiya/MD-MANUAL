@@ -4,6 +4,11 @@
 
 https://wpml.org/
 
+wpml off style in funcrtion
+
+`` define('ICL_DONT_LOAD_NAVIGATION_CSS', true); ``
+
+
 `` <?php _e( 'See', 'see-stryng'); ?> ``
 
 ``<?php bloginfo('language'); ?>``
