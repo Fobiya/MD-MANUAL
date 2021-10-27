@@ -9,53 +9,158 @@
 
 //ADD PERSONE
 
-add_action( 'init', 'create_taxname', 0 );
-function create_taxname () {
-$args = array(
-    'label' => _x( 'Персоны', 'taxonomy general name' ),
-    'labels' => array(
-    'name' => _x( 'Персоны', 'taxonomy general name' ),
-    'singular_name' => _x( 'Персоны', 'taxonomy singular name' ),
-    'menu_name' => __( 'Персоны' ),
-    'all_items' => __( 'Все Персоны' ),
-    'edit_item' => __( 'Изменить персону' ),
-    'view_item' => __( 'Просмотреть Персоны' ),
-    'update_item' => __( 'Обновить персону' ),
-    'add_new_item' => __( 'Добавить новую персону' ),
-    'new_item_name' => __( 'Название' ),
-    'parent_item' => __( 'Родительская' ),
-    'parent_item_colon' => __( 'Родительская:' ),
-    'search_items' => __( 'Поиск персон' ),
-    'popular_items' => null,
-    'separate_items_with_commas' => null,
-    'add_or_remove_items' => null,
-    'choose_from_most_used' => null,
-    'not_found' => __( 'Персону не найдено.' ),
-    ),
-    'public' => true,
-    'show_ui' => true,
-    'show_in_menu' => true,
-    'show_in_nav_menus' => true,
-    'show_tagcloud' => true,
-    'show_in_quick_edit' => true,
-    'show_in_rest' => true,
-    'meta_box_cb' => null,
-    'show_admin_column' => false,
-    'description' => '',
-    'hierarchical' => true,
-    'update_count_callback' => '',
-    'query_var' => true,
-    'rewrite' => array(
-    'slug' => 'person',
-    'with_front' => false,
-    'hierarchical' => true,
-    'ep_mask' => EP_NONE,
-),
-    'sort' => null,
-    '_builtin' => false,
-);
-register_taxonomy( 'person', array('post', 'new1' ), $args );
+/**
+ * Create two taxonomies, genres and writers for the post type "product".
+ *
+ * @see register_post_type() for registering custom post types.
+ */
+function wpdocs_create_book_taxonomies() {
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'WEAPON', 'taxonomy general name', 'textdomain' ),
+        'singular_name'     => _x( 'WEAPON', 'taxonomy singular name', 'textdomain' ),
+        'search_items'      => __( 'Search WEAPON', 'textdomain' ),
+        'all_items'         => __( 'All WEAPON', 'textdomain' ),
+        'parent_item'       => __( 'Parent WEAPON', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent WEAPON:', 'textdomain' ),
+        'edit_item'         => __( 'Edit WEAPON', 'textdomain' ),
+        'update_item'       => __( 'Update WEAPON', 'textdomain' ),
+        'add_new_item'      => __( 'Add New WEAPON', 'textdomain' ),
+        'new_item_name'     => __( 'New WEAPON Name', 'textdomain' ),
+        'menu_name'         => __( 'WEAPON', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'weapon' ),
+    );
+ 
+    register_taxonomy( 'weapon', array( 'product' ), $args );
+    
+    
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'EXTERIOR', 'taxonomy general name', 'textdomain' ),
+        'singular_name'     => _x( 'EXTERIOR', 'taxonomy singular name', 'textdomain' ),
+        'search_items'      => __( 'Search EXTERIOR', 'textdomain' ),
+        'all_items'         => __( 'All EXTERIOR', 'textdomain' ),
+        'parent_item'       => __( 'Parent EXTERIOR', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent EXTERIOR:', 'textdomain' ),
+        'edit_item'         => __( 'Edit EXTERIOR', 'textdomain' ),
+        'update_item'       => __( 'Update EXTERIOR', 'textdomain' ),
+        'add_new_item'      => __( 'Add New EXTERIOR', 'textdomain' ),
+        'new_item_name'     => __( 'New EXTERIOR Name', 'textdomain' ),
+        'menu_name'         => __( 'EXTERIOR', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'exterior' ),
+    );
+ 
+    register_taxonomy( 'exterior', array( 'product' ), $args );
+    
+    
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'QUALITY', 'taxonomy general name', 'textdomain' ),
+        'singular_name'     => _x( 'QUALITY', 'taxonomy singular name', 'textdomain' ),
+        'search_items'      => __( 'Search QUALITY', 'textdomain' ),
+        'all_items'         => __( 'All QUALITY', 'textdomain' ),
+        'parent_item'       => __( 'Parent QUALITY', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent QUALITY:', 'textdomain' ),
+        'edit_item'         => __( 'Edit QUALITY', 'textdomain' ),
+        'update_item'       => __( 'Update QUALITY', 'textdomain' ),
+        'add_new_item'      => __( 'Add New QUALITY', 'textdomain' ),
+        'new_item_name'     => __( 'New QUALITY Name', 'textdomain' ),
+        'menu_name'         => __( 'QUALITY', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'quality' ),
+    );
+ 
+    register_taxonomy( 'quality', array( 'product' ), $args );
+    
+    
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'TYPE', 'taxonomy general name', 'textdomain' ),
+        'singular_name'     => _x( 'TYPE', 'taxonomy singular name', 'textdomain' ),
+        'search_items'      => __( 'Search TYPE', 'textdomain' ),
+        'all_items'         => __( 'All TYPE', 'textdomain' ),
+        'parent_item'       => __( 'Parent TYPE', 'textdomain' ),
+        'parent_item_colon' => __( 'Parent TYPE:', 'textdomain' ),
+        'edit_item'         => __( 'Edit TYPE', 'textdomain' ),
+        'update_item'       => __( 'Update TYPE', 'textdomain' ),
+        'add_new_item'      => __( 'Add New TYPE', 'textdomain' ),
+        'new_item_name'     => __( 'New TYPE Name', 'textdomain' ),
+        'menu_name'         => __( 'TYPE', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'type' ),
+    );
+ 
+    register_taxonomy( 'type', array( 'product' ), $args );
+    
+    
+ 
+    unset( $args );
+    unset( $labels );
+ 
+    // Add new taxonomy, NOT hierarchical (like tags)
+    $labels = array(
+        'name'                       => _x( 'Writers', 'taxonomy general name', 'textdomain' ),
+        'singular_name'              => _x( 'Writer', 'taxonomy singular name', 'textdomain' ),
+        'search_items'               => __( 'Search Writers', 'textdomain' ),
+        'popular_items'              => __( 'Popular Writers', 'textdomain' ),
+        'all_items'                  => __( 'All Writers', 'textdomain' ),
+        'parent_item'                => null,
+        'parent_item_colon'          => null,
+        'edit_item'                  => __( 'Edit Writer', 'textdomain' ),
+        'update_item'                => __( 'Update Writer', 'textdomain' ),
+        'add_new_item'               => __( 'Add New Writer', 'textdomain' ),
+        'new_item_name'              => __( 'New Writer Name', 'textdomain' ),
+        'separate_items_with_commas' => __( 'Separate writers with commas', 'textdomain' ),
+        'add_or_remove_items'        => __( 'Add or remove writers', 'textdomain' ),
+        'choose_from_most_used'      => __( 'Choose from the most used writers', 'textdomain' ),
+        'not_found'                  => __( 'No writers found.', 'textdomain' ),
+        'menu_name'                  => __( 'Writers', 'textdomain' ),
+    );
+ 
+    $args = array(
+        'hierarchical'          => false,
+        'labels'                => $labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'writer' ),
+    );
+ 
+    register_taxonomy( 'writer', 'product', $args );
 }
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'wpdocs_create_book_taxonomies', 0 );
 
 ADD CATYGORY POST TYPE - new1
 

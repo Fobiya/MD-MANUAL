@@ -14,7 +14,7 @@ $terms = get_terms('product_cat', $args);
                               
          <?php if( $term->name == 'Default'){  continue;  } ?>
                               
-  <li><a href="<?php echo get_term_link($term); ?>"> <?php echo esc_attr($term->name); ?></a></li>  
+            <li><a href="<?php echo get_term_link($term); ?>"> <?php echo esc_attr($term->name); ?></a></li>  
        <? }
 
     } ?>
