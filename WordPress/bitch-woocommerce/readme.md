@@ -3,8 +3,92 @@
 <!--![](../../img/)-->
 
 
+```php
+
+global $woocommerce;
+  
+$order = wc_get_order( $order_id );
+  
+if ( $order ) {
+$order->get_id();
+$order->get_order_key();
+$order->get_formatted_order_total();
+$order->get_cart_tax();
+$order->get_currency();
+$order->get_discount_tax();
+$order->get_discount_to_display();
+$order->get_discount_total();
+$order->get_fees();
+$order->get_formatted_line_subtotal();
+$order->get_shipping_tax();
+$order->get_shipping_total();
+$order->get_subtotal();
+$order->get_subtotal_to_display();
+$order->get_tax_location();
+$order->get_tax_totals();
+$order->get_taxes();
+$order->get_total();
+$order->get_total_discount();
+$order->get_total_tax();
+$order->get_total_refunded();
+$order->get_total_tax_refunded();
+$order->get_total_shipping_refunded();
+$order->get_item_count_refunded();
+$order->get_total_qty_refunded();
+$order->get_qty_refunded_for_item();
+$order->get_total_refunded_for_item();
+$order->get_tax_refunded_for_item();
+$order->get_total_tax_refunded_by_rate_id();
+$order->get_remaining_refund_amount();
+  
+// recorder ITEMs 
+
+foreach ( $order->get_items() as $item_id => $item ) {
+   $product_id = $item->get_product_id();
+   $variation_id = $item->get_variation_id();
+   $product = $item->get_product();
+   $name = $item->get_name();
+   $quantity = $item->get_quantity();
+   $subtotal = $item->get_subtotal();
+   $total = $item->get_total();
+   $tax = $item->get_subtotal_tax();
+   $taxclass = $item->get_tax_class();
+   $taxstat = $item->get_tax_status();
+   $allmeta = $item->get_meta_data();
+   $somemeta = $item->get_meta( '_whatever', true );
+   $type = $item->get_type();
+}
+
+$order->get_items_key();
+$order->get_items_tax_classes();
+$order->get_item_count();
+$order->get_item_total();
+$order->get_downloadable_items();
+$order->get_line_subtotal();
+$order->get_line_tax();
+$order->get_line_total();
+$order->get_shipping_method();
+$order->get_shipping_methods();
+$order->get_shipping_to_display();
+$order->get_date_created();
+$order->get_date_modified();
+$order->get_date_completed();
+$order->get_date_paid();
+$order->get_customer_id();
+$order->get_user_id();
+$order->get_user();
+$order->get_customer_ip_address();
+$order->get_customer_user_agent();
+$order->get_created_via();
+$order->get_customer_note();
+$order->get_address_prop();
+$order->get_billing_first_name();
+$order->get_billing_last_name();
+$order->get_billing_company();
+$order->get_billing_addres
 
 
+```
 
 ```php
 
