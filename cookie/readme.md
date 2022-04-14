@@ -34,9 +34,39 @@ ss
 
 ```html
 
+  wp_enqueue_script( 'cookie', '//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js',  array(), '1.0', true );
+  
+  
+  //         $.cookie('brochure_modal_cookie', 'no', { expires: 7 });
+        $('a.no_thx').on( 'click', function(){
+           $.cookie('brochure_modal_cookie', 'close', { expires: 7 });
+            }); 
+//    var check_cookie = $.cookie('brochure_modal_cookie');
+    if(!$.cookie('brochure_modal_cookie') ){
+
+          $.fancybox.open({
+    src  : '#modal',
+    type : 'inline',
+    'autoScale' : false,
+    'padding' :0,
+     opts : {
+        afterShow : function( instance, current ) {
+            console.info( 'done!' );
+        }
+    },
+//    'width' : 800,
+//    'height' : 575,
+//
+//    'onComplete' : function(){
+//        $('#fancybox-content').css({height:'800px',width:'675px'});
+//    }
+   });
+   }
 
 
 ```
+
+
 
 
 
