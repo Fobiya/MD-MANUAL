@@ -3,6 +3,48 @@
 <!--![](../../img/)-->
 
 
+##### only
+
+```php
+
+ function register_post_types(){
+	register_post_type( 'qi_talk', [
+		'labels' => [
+			'name'               => 'Qi Talk posts', 
+			'singular_name'      => 'Qi Talk post', 
+			'add_new'            => 'Add Qi Talk post', 
+			'add_new_item'       => 'Add Qi Talk post', 
+			'edit_item'          => 'Edit Qi Talk post', 
+			'new_item'           => 'New Qi Talk post', 
+			'view_item'          => 'View Qi Talk post', 
+			'search_items'       => 'Search Qi Talk post', 
+			'not_found'          => 'Not found', 
+			'not_found_in_trash' => 'Not found in trash', 
+			'menu_name'          => 'Qi Talk', 
+		],
+		'description'         => '',
+		'public'              => true,
+		'show_in_menu'        => true, 
+		'show_in_rest'        => true, // добавить в REST API. C WP 4.7
+		'rest_base'           => null, // $post_type. C WP 4.7
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-format-chat',
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'editor','author','thumbnail', 'excerpt', 'custom-fields' ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+		//'taxonomies'          => ['companies', 'personalities'],
+		'has_archive'         => true,
+		'rewrite'             => true,
+		'query_var'           => true,
+	]);
+}
+add_action( 'init', 'register_post_types' );
+
+```
+
+
+
+
+
 ##### create_blog
 
 ```php
