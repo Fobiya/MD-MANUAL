@@ -27,6 +27,15 @@ if( $_SERVER['REQUEST_URI'] == '/blog/' ){
 }
 
 
+  $url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+  $urlParts = parse_url($url);
+  $path = $urlParts['path'];
+  $subdomain = explode('/', $path);
+  // echo $subdomain[2];    //где номер[2] каталога 
+
+
+<?php if ($subdomain[2] == ''){ echo 'active ';  } ?>
+
 ```
 
 
