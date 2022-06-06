@@ -17,6 +17,9 @@ https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.h
 //id HOME 
 $home_page_id = get_option( 'page_on_front' );
 
+$url = site_url( '/secrets/', 'https' ); 
+echo $url;
+
 
 // - site wp-config.php
 
@@ -56,6 +59,17 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
       src="<?= get_template_directory_uri(); ?>/img/
       
       
+// - do_shortcode
+    echo do_shortcode( '[contact-form-7 id="91" title="quote"]' );
+        
+    $var = do_shortcode( '' );
+    echo $var;
+     
+// - POST DATA
+     $post_date = get_the_date( 'l F j, Y' ); echo $post_date;   
+```
+[Links](https://github.com/Fobiya/MD-MANUAL/tree/master/php/date)
+```php
   
 // - ACF z-index
       get_row_index()
@@ -63,6 +77,12 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
       <?php if(get_row_index() == '4'){ echo 'col m6 s12 l4 offset-l2 xl4 offset-xl2'; }else{ echo 'col m6 s12 l4 xl4'; } ?>
       
 ```
+
+$rtitlett = get_the_title(); 
+               
+$tmt = substr($rtitlett, 0, 85 );
+echo $tmt;
+
 
 ### jquery cdnjs
 

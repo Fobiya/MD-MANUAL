@@ -19,6 +19,12 @@ define('WP_ALLOW_MULTISITE', true);
 //define('BLOG_ID_CURRENT_SITE', 1);
 /* That's all, stop editing! Happy publishing. */
 
+WPML
+
+echo ICL_LANGUAGE_CODE;
+
+echo do_shortcode("[wpml_custom_lang]"); 
+
 
  ```
 

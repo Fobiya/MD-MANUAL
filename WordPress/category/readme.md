@@ -7,7 +7,14 @@ add file in you template ``category.php and single.pgp``
 
 url ``domen/category/name-category/``
 
+### single_cat_title
 
+```php
+
+echo  single_cat_title( '', false );
+
+
+```
 
 ### wp_list_categories();
 

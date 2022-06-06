@@ -7,6 +7,14 @@
 #### php
 
 ```php
+$rtitlett = get_the_title(); 
+               
+$tmt = substr($rtitlett, 0, 85 );
+echo $tmt;
+```
+
+```php
+
 
 // 300 символов обрезает 
 

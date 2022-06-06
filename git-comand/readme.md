@@ -17,7 +17,7 @@ git config --global user.email <your e-mail address>
 
 ```
 
-#### git branch
+#### git branch переключение ветики 
 
 ```text
 git branch
@@ -37,6 +37,16 @@ git checkout new
 
 ```
 
+####  Создание ветки 
 
+```text
+git branch -d  --my--
 
+```
 
+####  Создание ветки и пуш
+
+```text
+git push --set-upstream origin bingorooms-1-3-rooms
+
+```
