@@ -53,11 +53,11 @@ https://kenwheeler.github.io/slick/
                 }
             }
         ]
-//                customPaging: function(slider, i) {
-//      // this example would render "tabs" with titles
-//      return '<span class="dot"></span>';
-//    },
-    });
+  //                customPaging: function(slider, i) {
+  //      // this example would render "tabs" with titles
+  //      return '<span class="dot"></span>';
+  //    },
+  });
 
 
 
@@ -83,6 +83,19 @@ https://kenwheeler.github.io/slick/
       var $el = $('.slide-count-wrap').find('.current');
       $el.text(currentSlide + 1);
     } 
+
+
+
+
+
+
+    $('.slider').on('afterChange', function(event, slick, currentSlide){
+  		if (currentSlide == 1) {
+	 		$('.anotherClass').addClass('addedClass');
+  		}else {
+  			$('.anotherClass').removeClass('addedClass');
+  		};
+	});
 
 
 
