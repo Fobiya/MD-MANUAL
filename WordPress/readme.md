@@ -117,6 +117,13 @@ add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
    
       
 ```
+### New file derectory 
+
+```php  
+      
+get_footer( 'something' )   footer-something.php
+      
+```
 
 ```php
 
