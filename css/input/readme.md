@@ -1,6 +1,6 @@
 ## input checkbox radio
 
-![](../../img/-webkit-text-stroke.png)
+<!--![](../../img/-webkit-text-stroke.png)-->
 
 #### Css Style
 
