@@ -50,3 +50,28 @@ git branch -d  --my--
 git push --set-upstream origin bingorooms-1-3-rooms
 
 ```
+
+
+####  backup branch
+
+```text
+
+Find the 'sha' for the commit at the tip of your deleted branch using: 
+
+git reflog
+To restore the branch, use: 
+
+git checkout -b <branch> <sha>
+
+
+
+
+
+
+
+$ git checkout -b back-mod 4d5f121871918030be47c524cf77ca3e9435293d
+Switched to a new branch 'back-mod'
+
+```
+
+

@@ -101,6 +101,10 @@ https://kenwheeler.github.io/slick/
 
 ```
 
+
+
+
+
 ##### HTML
 
 
@@ -118,4 +122,41 @@ https://kenwheeler.github.io/slick/
 
    $('.box__slider__8').slick('refresh');
 
+```
+
+
+
+
+##### colback
+
+```JavaScript
+
+ $('.box__slider').on('afterChange', function(event, slick, currentSlide){
+  		if (currentSlide == 0) {
+
+  		}else if (currentSlide == 1) { 
+
+  		}else if (currentSlide == 2) { 
+	 		$('.overlay__box__news').removeClass('slider_1 slider_2 slider_3 slider_4 slider_5 slider_6');          
+  			$('.overlay__box__news').addClass('slider_3');
+  		};
+	});
+  
+```
+
+
+
+##### colback
+
+```JavaScript
+
+    .slick({
+        slidesToShow: 1, // толкьо 1 слайд показывать одновременно
+        slidesToScroll: 1, // по 1-му слайду проскролливать
+        speed: 8000, // медленная смена слайдов - скорость бегущей строки
+        autoplay: true, // устанавливаем автозапуск слайдера
+        autoplaySpeed: 0, //делаем запуск мгновенный с загрузкой страницы
+        cssEase: 'linear', // делаем анимацию однотонной при смене слайда
+    });
+  
 ```
