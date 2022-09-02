@@ -214,6 +214,35 @@ if( $menu_items = wp_get_nav_menu_items('Меню для шапки') ) { // "М
 	echo $menu_list;
 }
 
+
+
+
+
+  if( $menu_items = wp_get_nav_menu_items('main-menu') ) { // "Меню для шапки" - это название моего меню. Вы можете также использовать ID или ярлык
+	$menu_list = '';
+	foreach ( (array) $menu_items as $key => $menu_item ) {
+      
+  if($key != 2 && $key != 0 && $key != 1  ){  //if($key    0 1 2  break  is not 
+      
+      $url_img = get_field('namber_slide', $menu_item->ID);
+      
+		$title = $menu_item->title; // заголовок элемента меню (анкор ссылки)
+		$url = $menu_item->url; // URL ссылки
+		$menu_list .= '<li><a data-slide="' .$url_img . '" href="' . $url . '">' . $title . '</a></li>';
+
+      } //if($key
+      
+      
+      if($key == 2) break;  //   0 1 2  break
+	}
+    
+    	echo $menu_list;
+
+} 
+
+
+
+
 ```
 
 advancedcustomfields/menu-acf/  [Links](https://misha.agency/wordpress/wp_get_nav_menu_items.html)

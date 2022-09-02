@@ -3,7 +3,7 @@
 https://kenwheeler.github.io/slick/
 
 
-##### JavaScript
+##### slick slider 
 
 ```JavaScript
 
@@ -105,7 +105,7 @@ https://kenwheeler.github.io/slick/
 
 
 
-##### HTML
+##### slick slider current  total
 
 
 ```html
@@ -116,7 +116,7 @@ https://kenwheeler.github.io/slick/
 
 ```
 
-##### slick REINIT
+##### slick slider   REINIT
 
 ```JavaScript
 
@@ -127,7 +127,7 @@ https://kenwheeler.github.io/slick/
 
 
 
-##### colback
+#####  slick slider  afterChange
 
 ```JavaScript
 
@@ -146,7 +146,7 @@ https://kenwheeler.github.io/slick/
 
 
 
-##### colback
+#####  slick slider  colback
 
 ```JavaScript
 
@@ -160,3 +160,45 @@ https://kenwheeler.github.io/slick/
     });
   
 ```
+
+
+##### slick slider click beforeChange click breakpoint
+
+```JavaScript
+
+$('.your-element').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  console.log(nextSlide);
+});
+
+
+    $('#full__tuch').on('beforeChange',  function(event, slick) {
+
+       $('ul.mobile li a').on('click', function() {
+
+
+
+           var $mobile_data = $(this).data("mobile");
+
+  //       console.log($mobile_data);
+
+          $('ul.mobile li ').removeClass('select');
+
+
+          $('ul.mobile').removeClass('select1 select2 select3 select4 select5 select6');
+
+          $(this).parent().addClass('select'); 
+          $(this).parent().parent().addClass('select'+ $mobile_data); 
+
+
+            $(this).addClass('select'); 
+
+        });  
+
+
+  //    $('.my-gallery-image').on('click', function() {
+  //        $(this).addClass('active');
+  //    });
+  });  
+
+```
+
