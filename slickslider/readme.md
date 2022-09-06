@@ -202,3 +202,33 @@ $('.your-element').on('beforeChange', function(event, slick, currentSlide, nextS
 
 ```
 
+##### search    /?slick=17
+
+```JavaScript
+
+     if (window.location.search.indexOf("slick") > -1) {
+
+          var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+       
+       var tech = getUrlParameter('slick');
+
+       $('#full__tuch').slick('slickGoTo', tech);
+
+       
+     }
+
+
+```
