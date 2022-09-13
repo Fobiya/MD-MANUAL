@@ -189,4 +189,81 @@ scss
 
 ```
 
+
+
+
+```css
+
+html[lang]{
+	margin-top: 0px !important;
+}
+html[lang] body.page-template #wpadminbar:hover{
+  opacity: 1;
+}
+html[lang] body.page-template #wpadminbar{
+	
+    width: 200px !important;
+    min-width: 200px !important;
+    float: right;
+    height: auto;
+    left: initial;
+    right: 20px;
+    top: 20px;
+    opacity: .4;
+	
+}
+
+html[lang] body.page-template #wpadminbar #wp-toolbar{
+    display: flex;
+    flex-direction: column;
+}
+html[lang] body.page-template #wpadminbar #wp-toolbar ul{
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+}
+html[lang] body.page-template #wpadminbar #wp-toolbar ul li{
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+html[lang] body.page-template #wpadminbar .ab-top-menu>.menupop>.ab-sub-wrapper{
+      background: #1d2327;
+    z-index: 222;
+    min-width: 100%;
+    position: relative;
+}
+
+
+
+/*  form contact 7 */
+
+
+.wpcf7-response-output,.wpcf7-not-valid-tip{
+  display: none !important; 
+}
+
+.wpcf7-not-valid{
+  border-bottom: 1px solid #ff0000 !important; 
+}
+
+.wpcf7-not-valid{
+  border-bottom: 1px solid #ff0000 !important; 
+  
+  color: #ff0000;
+}
+
+.wpcf7-not-valid::placeholder{
+    color: #ff0000;
+}
+
+.wpcf7-not-valid:placeholder{
+    color: #ff0000;
+}
+
+```
+
 vue-and-the-wordpress-rest-api [Links](http://bionicteaching.com/vue-and-the-wordpress-rest-api/)
