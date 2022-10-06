@@ -76,3 +76,28 @@ en
 
 ```
 
+
+```php
+
+
+    function language_selector_flags(){
+        $languages = icl_get_languages('skip_missing=0&orderby=code');
+        if(!empty($languages)){
+            echo '<ul class="menu language-menu">';
+            foreach($languages as $l){
+                if($l['active'] == 1){ $class = 'lang_sel_sel'; }
+                elseif ($l['active'] == 0) {
+                  $class = 'lang_sel_other';
+                }
+                echo '<li><a href="'.$l['url'].'" class="'.$class.'"><span>';
+                echo strtoupper($l['language_code']);
+                echo '</span></a></li> ';
+            }
+            echo '</ul>';
+        }
+    }
+
+
+```
+
+
