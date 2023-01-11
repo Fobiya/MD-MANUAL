@@ -7,6 +7,21 @@ https://wordpress.org/plugins/contact-form-7/
 ### 
 
 
+
+https://contactform7.com/special-mail-tags/
+
+```php
+
+  [text* applyer-name id:resumeApply_applyerName class:input-form placeholder 'Name']
+  
+  [tel* tel-275  id:resumeApply_applyerPhone class:input-form placeholder 'Phone number']
+  
+  [file* file-577 id:jobApply_applyerResume filetypes:doc|pdf|csv|png class:input-file-actual class:input-form limit:25000000]
+  
+  [textarea textarea-letter id:jobApply_applyerMsg class:input-textarea placeholder 'Accompanying letter']
+
+```
+
 ```php
     
  <script>

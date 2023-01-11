@@ -359,4 +359,51 @@ $postid = get_the_ID();    ?>
 
 ```
 
+
+
+```php
+
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+global $product;
+
+if ( ! wc_review_ratings_enabled() ) {
+	return;
+}
+
+
+// function get_total_reviews_count_test()
+// {
+//   return get_comments(array(
+//     'status'   => 'approve',
+//     'post_status' => 'publish',
+//     'post_type'   => 'product',
+//     'count' => true
+//   ));
+// }
+
+
+$rating_count = $product->get_rating_count();
+$review_count = get_comments_number($product->get_id());
+$average      = $product->get_average_rating();
+
+if ( $rating_count > 0 ) : ?>
+
+	<div class="woocommerce-product-rating">
+		<?php echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok. ?>
+		<?php if ( comments_open() ) : ?>
+			<?php //phpcs:disable ?>
+			<a inst-plug href="<?php echo get_post_permalink(get_the_ID());?>#tab-reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?>)</a>
+			<?php // phpcs:enable ?>
+		<?php endif ?>
+	</div>
+
+<?php endif; ?>
+
+
+```
+
 <!--vue-and-the-wordpress-rest-api [Links](http://bionicteaching.com/vue-and-the-wordpress-rest-api/)-->
