@@ -91,7 +91,7 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
 // - substr()  remove content
 
-[substr func](https://github.com/Fobiya/MD-MANUAL/tree/master/php/substr)
+[substr_func](https://github.com/Fobiya/MD-MANUAL/tree/master/php/substr)
 
 $rtitlett = get_the_title(); 
                
