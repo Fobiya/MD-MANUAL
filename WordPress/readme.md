@@ -2,8 +2,10 @@
 
 <!--![](../../img/)-->
 #### links
-https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
-https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.html // ACF INFO
+* https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
+* https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.html 
+
+// ACF INFO
 
 ```php
 
@@ -64,11 +66,18 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
         
     $var = do_shortcode( '' );
     echo $var;
-     
+   
+```     
+
+```php
+
 // - POST DATA
      $post_date = get_the_date( 'l F j, Y' ); echo $post_date;   
-```
+
 [Links](https://github.com/Fobiya/MD-MANUAL/tree/master/php/date)
+
+```
+
 ```php
   
 // - ACF z-index
@@ -78,10 +87,19 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
       
 ```
 
+```php
+
+// - substr()  remove content
+
+[substr func](https://github.com/Fobiya/MD-MANUAL/tree/master/php/substr)
+
 $rtitlett = get_the_title(); 
                
 $tmt = substr($rtitlett, 0, 85 );
 echo $tmt;
+
+      
+```
 
 
 ### jquery cdnjs
@@ -176,12 +194,13 @@ get_footer( 'something' )   footer-something.php
 ```php
 in function.php
 
-add_action( 'init', '_remove_style' );
 
-function _remove_style() {
-    wp_dequeue_style( 'select2.css' );
-//    wp_dequeue_style( 'yasr.css' );
+add_action( 'wp_enqueue_scripts', '_remove_styler', PHP_INT_MAX );
+function _remove_styler() {
+    wp_dequeue_style( 'select2' );
+    wp_dequeue_style('select2.css'); 
 }
+
 
 ```
 
