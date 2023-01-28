@@ -172,6 +172,18 @@ get_footer( 'something' )   footer-something.php
                   
 ```
 
+//  REMOVE STYLE IN WP
+```php
+in function.php
+
+add_action( 'init', '_remove_style' );
+
+function _remove_style() {
+    wp_dequeue_style( 'select2.css' );
+//    wp_dequeue_style( 'yasr.css' );
+}
+
+```
 
 ```php
 
