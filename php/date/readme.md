@@ -5,7 +5,21 @@
 
 #### php
 
+https://www.php.net/manual/en/timezones.europe.php
+
+https://github.com/DocWatson/acf-timezone-picker 
+
 ```php
+
+M d, Y G:i
+     
+      <?php //   date_default_timezone_set('UTC+1:00'); ?>
+  <?php // echo $date = new DateTimeZone('Europe/Paris'); ?>
+                   <?php // echo date('l jS \of F Y h:i:s A'); 
+date_default_timezone_set('Europe/Paris');
+echo date_default_timezone_get() . ' => ' . date('l jS \of F Y h:i:s A') . ' => ' . date('T');
+
+
 
 // Предположим, что текущая дата March 10th, 2001, 5:16:18 pm
 

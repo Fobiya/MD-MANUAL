@@ -4,6 +4,8 @@
 
 
 ```php
+ 
+ <?php echo  substr(wp_strip_all_tags(get_the_title()), 0, 40).'...';   ?>
 
  $rtextthe_title = strip_tags( get_the_title()); echo mb_substr( $rtextthe_title, 0, 60 );
  

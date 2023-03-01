@@ -97,6 +97,26 @@ add_action( 'wp_ajax_nopriv_couponcode_prod', 'prod_couponcode' );
 
 ```
 
+// list coupon
+
+```php
+                
+             <?php if( count( WC()->cart->get_applied_coupons() ) > 0 ) { ?>
+                
+                  <?php foreach( WC()->cart->get_applied_coupons() as $coupon_code ) { ?>
+                    <?php  // Get the WC_Coupon object
+                      $coupon = new WC_Coupon($coupon_code);
+
+                      $discount_type = $coupon->get_discount_type(); // Get coupon discount type
+                      $coupon_amount = $coupon->get_amount(); // Get coupon amount ?>
+                       <div class="box__total">
+                    <div class="subtotal"><?php echo 'Coupon: '. $coupon_code; ?></div>
+                    <div class="pricesubtotal"><?php echo  '- €'. $coupon_amount; ?></div>
+                                    </div>
+                  <?php } ?>
+
+             <?php } ?>
+```
 
 woocommerce-apply-coupon-programmatically-product-cart [Links](https://www.businessbloomer.com/woocommerce-apply-coupon-programmatically-product-cart/)
 woocommerce-ajax-apply-coupon-code-to-basket [Links](https://stackoverflow.com/questions/41593442/woocommerce-ajax-apply-coupon-code-to-basket/41593818/)

@@ -5,6 +5,12 @@
 * https://typerocket.com/docs/v3/removing-the-editor-from-post-types/
 * https://only-to-top.ru/blog/programming/2019-05-11-vyvod-proizvolnyh-polej-acf.html 
 
+
+---
+
+* https://www.businessbloomer.com/woocommerce-easily-get-order-info-total-items-etc-from-order-object/
+* https://gist.github.com/Dimasmagadan/2053399
+
 // ACF INFO
 
 ```php

@@ -9,11 +9,16 @@ https://misha.agency/wordpress/wp_nav_menu.html
 
     <?php
       $argsm = array(
-         'menu' => 'footer bottom menu',
+        'menu' => 'footer bottom menu',
         'container' => 'nav',
+        'container'=> false, // Без div обертки
+        'items_wrap'=> '%3$s', // Разделитель элементов
         'container_class' => 'menu',
         'before' => '<h2>', 
         'after'  => '</h2>',
+                     
+        'echo'=> false, // Чтобы можно было его предварительно вернуть           
+        'theme_location' => 'top',
       );
     ?>
     <?php  wp_nav_menu( $argsm );?>
@@ -21,6 +26,7 @@ https://misha.agency/wordpress/wp_nav_menu.html
     
         'link_before'     => '<li class="header__social-item DAAA"><a href="#" class="header__social-link DOOO">',
         'link_after'      => '</a></li>', 
+
         
         
     wp_nav_menu( [

@@ -21,6 +21,9 @@
 
 ```JavaScript
 
+document.addEventListener('DOMContentLoaded', function(){
+    jQuery(document).ready( function($){
+
   $('[data-fancybox-close]').click();
 
   $.fancybox.open({
@@ -41,7 +44,9 @@
     }
    });
 
-
+  });
+                                                         
+});
 
 // AutoFocus offf
 
