@@ -114,6 +114,19 @@ add_filter('acf/format_value/type=link', 'do_shortcode');
 
 
 
+// END Shortcode
+//[ban color='white' text='center' title='lorem lorem lorem lorem' back='768x260.png' content='lorem lorem lorem lorem' link='http://link' button='link' ]
+function shortcode_baner($attr = null){
+
+return '<div class="baner__link '. $attr['color'] .' '. $attr['text'] .'" style="background: url('. $attr['back'] .') no-repeat center /cover;">
+          <h2 class="title">'. $attr['title'] . '</h2>
+          <p class="content">'. $attr['content'] .'</p>
+          <a href="'. $attr['link'] .'" class="g-button g-button_fill">'. $attr['button'] .'</a>
+        </div>';
+}
+add_shortcode('ban', 'shortcode');
+// END Shortcode
+
 
 ```
 
