@@ -6,10 +6,105 @@
 
 
 ```php
+
+  wp_localize_script( 'main-ajax-js', 'php_vars',
+    array(
+      'ajax_url' => admin_url("admin-ajax.php"), 
+      'nonce' => wp_create_nonce('ajax-nonce'),  //   ajax-nonce 
+      'idpages' => get_the_ID(),
+      'title' => get_the_title(),
+    )
+  );
+  
+  
+  function change_delete_post(){
+    if ( empty($_POST) || ! wp_verify_nonce( $_POST['delete_post_nonce'], 'ajax-nonce') ){  //delete_post_nonce  - YOU PARAMETR FILD
+       
+        print 'Sorry, the verification data does not match.';
+        exit;
+    }else{
+    
+      echo 'DONE';
+    }
+    die;
+}
+
+```
+
+```php
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+      jQuery(document).ready( function($){
+    
+          // select list li 
+          var listItems = document.querySelectorAll('.list li');   // this list  
+                                          
+          var listItems = document.querySelector('.list li');   // this one element  
+
+          function handleClick(event) {
+
+             if(!event){
+                  console.log('click');
+             }
+          }
+
+          // Assign click event handler to each list item
+          listItems.forEach(function(item) {
+            item.addEventListener('click', handleClick);
+          });
+    
+    
+        let ajax_url = php_vars.ajax_url;
+        let nonce = php_vars.nonce;
+        let idpages = php_vars.idpages;
+
+          // Send WP Ajax request 
+          var data = {
+            action: 'update_articles',
+            value: valuesString,
+            articles: selectedValues.join(','),
+            nonce: nonce,
+            id: idpages,
+          };
+
+          jQuery.ajax({
+            type: 'POST',
+            url: ajax_url,
+            data: data,
+            success: function(response) {
+            // Handle successful server response
+              if (response) {
+                // Clear the existing content in the #post-container
+                jQuery('#post-container').empty();
+                // Append the response to the #post-container
+                jQuery('#post-container').append(response);
+              }
+            },
+            error: function(error) {
+              // Handle request error
+              console.log(error);
+            }
+          });    
+
+      });
+    }); 
+
+  </script>
+```
+
+
+```php
     
  <script>
     document.addEventListener('DOMContentLoaded', function(){
       jQuery(document).ready( function($){
+    
+        let ajax_url = php_vars.ajax_url;
+        let nonce = php_vars.nonce;
+        let idpages = php_vars.idpages;
+
+    
 
         $("[id*='remove_']").click(function(em){
 
@@ -47,10 +142,16 @@
 
 ### functions.php
 
+
+
+
+
 ```php
+
 
 function change_delete_post(){
     if ( empty($_POST) || ! wp_verify_nonce( $_POST['delete_post_nonce'], 'delete_post') ){
+       
         print 'Sorry, the verification data does not match.';
         exit;
     }else{

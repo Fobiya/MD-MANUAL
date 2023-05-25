@@ -1,4 +1,4 @@
-# Register taxonomy
+# Taxonomy Radio Input
 
 <!--![](../../img/)-->
 
@@ -7,62 +7,74 @@
 
 ```php
 
-// register_taxonomy
-function register_start_taxonomy() {
+function custom_taxonomy() {
     $labels = array(
-        'name'                       => 'Start',
-        'singular_name'              => 'Start',
-        'search_items'               => 'Search Start',
-        'popular_items'              => 'Popular Start',
-        'all_items'                  => 'All Start',
-        'parent_item'                => 'Parent Start',
-        'parent_item_colon'          => 'Parent Start:',
-        'edit_item'                  => 'Edit Start',
-        'update_item'                => 'Update Start',
-        'add_new_item'               => 'Add New Start',
-        'new_item_name'              => 'New Start Name',
-        'separate_items_with_commas' => 'Separate Start with commas',
-        'add_or_remove_items'        => 'Add or remove Start',
-        'choose_from_most_used'      => 'Choose from the most used Start',
-        'not_found'                  => 'No Start found.',
-        'menu_name'                  => 'Start',
+        'name'                       => 'New Tax',
+        'singular_name'              => 'New Tax',
+        'search_items'               => 'Search New Tax',
+        'popular_items'              => 'Popular New Tax',
+        'all_items'                  => 'All New Tax',
+        'edit_item'                  => 'Edit New Tax',
+        'update_item'                => 'Update New Tax',
+        'add_new_item'               => 'Add New New Tax',
+        'new_item_name'              => 'New New Tax Name',
+        'separate_items_with_commas' => 'Separate New Tax with commas',
+        'add_or_remove_items'        => 'Add or remove New Tax',
+        'choose_from_most_used'      => 'Choose from the most used New Tax',
+        'not_found'                  => 'No New Tax found.',
+        'menu_name'                  => 'New Tax',
     );
-    
-    
-    // Now register the taxonomy
-      register_taxonomy('superpower',array('post'), array(  // type post
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_in_rest' => true,
+
+    $args = array(
+        'rewrite' => array( 'slug' => 'newtax' ),
+        'labels'            => $labels,
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
         'show_admin_column' => true,
-        'query_var' => true,
-        'rewrite' => array( 'slug' => 'start' ),  // slug   catygory slug
-      ));
+        'show_in_nav_menus' => true,
+        'show_tagcloud'     => true,
+        'query_var'         => true,
+        'meta_box_cb'       => 'render_newtax_meta_box',
+        'multiple'          => false,
+    );
 
+    register_taxonomy('custom_taxonomy', 'experts', $args);
 }
-add_action( 'init', 'register_start_taxonomy' );
+add_action('init', 'custom_taxonomy');
+
+function render_newtax_meta_box($post, $box) {
+    $taxonomy = $box['args']['taxonomy'];
+    $tax = get_taxonomy($taxonomy);
+    $terms = get_terms($taxonomy, array('hide_empty' => false));
+
+    $name = 'tax_input[' . $taxonomy . ']';
+    $selected = wp_get_object_terms($post->ID, $taxonomy, array('fields' => 'ids'));
+    ?>
+
+    <div id="taxonomy-<?php echo $taxonomy; ?>" class="categorydiv">
+        <ul id="<?php echo $taxonomy; ?>checklist" class="list:<?php echo $taxonomy ?> categorychecklist form-no-clear">
+            <li>
+                <label class="selectit">
+                    <input type="radio" name="<?php echo $name; ?>[]" value="0" <?php checked(empty($selected)); ?>>
+                    Deselect
+                </label>
+            </li>
+            <?php foreach ($terms as $term) : ?>
+                <li>
+                    <label class="selectit">
+                        <input type="radio" name="<?php echo $name; ?>[]" id="<?php echo $taxonomy . '-' . $term->term_id; ?>" value="<?php echo esc_attr($term->term_id); ?>" <?php checked(in_array($term->term_id, $selected)); ?>>
+                        <?php echo esc_html($term->name); ?>
+                    </label>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <?php
+}
 
 
-ADD CATYGORY POST TYPE - new1
-
-```
-
-
-```php
-
-<?php // Replace 'your_taxonomy' with the actual taxonomy name
-$termes = get_the_terms(get_the_ID(), 'start');
-
-if (!empty($termes)) {
-  // Loop through each term and generate the options
-  foreach ($termes as $terme) {
-    if($into == $terme->slug ){
-      break;
-    }
-    echo '<li cat-' . $terme->slug . '>' . $terme->name . '</li>';
-  }
-} ?>
 
 ```
 

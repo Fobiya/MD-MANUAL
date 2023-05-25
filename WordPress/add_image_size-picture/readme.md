@@ -1,4 +1,4 @@
-## add_image_size-picture
+# add image size picture
 
 <!--![](../../img/)-->
 
@@ -8,6 +8,22 @@
 add_image_size( 'homepagethumb', 250, 185, true );
 add_image_size( 'nazvanie-moego-razmera', 278, 185, true  );
 
+<img class="disableLazyLoad"
+     src="<?php echo $image['sizes']['389_no_cropped']; ?>"
+     width="389"
+     height="193"
+     alt="<?php echo esc_attr($image['alt']) ?? 'Image'; ?>"/>
+
+      <?php  // vars
+      $image = get_field('images');  
+      $image = get_sub_field('images');  ?>
+      <?php if( !empty( $image ) ):  ?>
+        <div class="box__img"><img src="<?php echo $image['sizes']['post']; ?>" alt="<?php echo $image['alt']; ?>"></div>
+      <?php else: ?>
+
+      <img src="<?= get_template_directory_uri(); ?>/img/image.svg" alt="<?php echo  get_the_title(); ?>">
+
+  <?php endif; ?>  
 
 
 <?php if( have_rows('fotogalereya') ): ?>

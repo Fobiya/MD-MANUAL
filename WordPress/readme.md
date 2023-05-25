@@ -67,6 +67,8 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
       src="<?= get_template_directory_uri(); ?>/img/
       
       
+      
+      
 // - do_shortcode
     echo do_shortcode( '[contact-form-7 id="91" title="quote"]' );
         
