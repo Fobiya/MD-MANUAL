@@ -16,6 +16,7 @@ Then, while editing the wp-config.php file, add the following code snippet above
 
 
 define('ALLOW_UNFILTERED_UPLOADS', true);
+define('ALLOW_UNFILTERED_UPLOADS', true);
 
 
 // // // URL SITE
